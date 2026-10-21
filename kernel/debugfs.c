@@ -7,6 +7,7 @@
 #include "../proto/native_wire.h"
 #include "tbv.h"
 #include "verbs_dmabuf.h"
+#include "verbs_internal.h"
 #include "verbs_control.h"
 
 static u32 tbv_debugfs_wire_path_flags(const struct tbv_path *path)
@@ -123,6 +124,7 @@ static int tbv_debugfs_summary_show(struct seq_file *s, void *unused)
 	seq_printf(s, "gpu_direct_wait_after_kick: %llu\n",
 		   tbv_gpu_direct_wait_after_kick());
 	tbv_dmabuf_debugfs_show(s);
+	tbv_host_dma_debugfs_show(s);
 	seq_printf(s, "native_write_stripe_min_bytes: %u\n",
 		   state->native_write_stripe_min_bytes);
 	seq_printf(s, "native_domain_mask: 0x%x\n", state->native_domain_mask);
