@@ -1,0 +1,21 @@
+name: Framework Desktop regressions
+
+on:
+  push:
+    branches: [codex/framework-desktop]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check maintained scripts
+        run: python3 tools/ci/check-syntax.py
+      - name: Exercise protocol and actual production helpers
+        run: python3 tools/ci/run-smoke.py
