@@ -295,6 +295,9 @@ struct tbv_rail {
 	bool removing;
 	/* Direct raw pools cannot be reused after close or a failed session. */
 	bool gpu_direct_used;
+	/* Descriptor aborts quarantine the raw stream until peer recreation. */
+	int dmabuf_quarantine_reason;
+	struct tbv_dmabuf_cache *dmabuf_cache[2];
 	/*
 	 * Registration unwinding marker. Set under state->rail_register_lock
 	 * when ib_register_device() returns nonzero for this rail. While true
