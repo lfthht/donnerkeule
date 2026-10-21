@@ -1,0 +1,90 @@
+[
+  {
+    "depth": 16384,
+    "arm": "mellanox",
+    "repetitions": 5,
+    "prompt_tokens": 16384,
+    "generated_tokens": 256,
+    "elapsed_seconds": 12.18631985599859,
+    "ttft_seconds": 8.110818758999812,
+    "prefill_tokens_per_second": 2023.76598017262,
+    "decode_tokens_per_second": 60.62782071172692
+  },
+  {
+    "depth": 16384,
+    "arm": "usb4-two",
+    "repetitions": 5,
+    "prompt_tokens": 16384,
+    "generated_tokens": 256,
+    "elapsed_seconds": 12.496591924000313,
+    "ttft_seconds": 8.112376476999998,
+    "prefill_tokens_per_second": 2022.270364961927,
+    "decode_tokens_per_second": 57.329834469349656
+  },
+  {
+    "depth": 32768,
+    "arm": "mellanox",
+    "repetitions": 5,
+    "prompt_tokens": 32770,
+    "generated_tokens": 256,
+    "elapsed_seconds": 18.206304141000146,
+    "ttft_seconds": 14.552863757999148,
+    "prefill_tokens_per_second": 2254.0806954849672,
+    "decode_tokens_per_second": 69.25642806519713
+  },
+  {
+    "depth": 32768,
+    "arm": "usb4-two",
+    "repetitions": 5,
+    "prompt_tokens": 32770,
+    "generated_tokens": 256,
+    "elapsed_seconds": 18.455535451999822,
+    "ttft_seconds": 14.663420582999606,
+    "prefill_tokens_per_second": 2237.01615396194,
+    "decode_tokens_per_second": 68.44470907759414
+  },
+  {
+    "depth": 65536,
+    "arm": "mellanox",
+    "repetitions": 5,
+    "prompt_tokens": 65535,
+    "generated_tokens": 256,
+    "elapsed_seconds": 34.91573091099963,
+    "ttft_seconds": 30.561750101000143,
+    "prefill_tokens_per_second": 2146.2420572571264,
+    "decode_tokens_per_second": 56.80809151039887
+  },
+  {
+    "depth": 65536,
+    "arm": "usb4-two",
+    "repetitions": 5,
+    "prompt_tokens": 65535,
+    "generated_tokens": 256,
+    "elapsed_seconds": 35.30697229100042,
+    "ttft_seconds": 30.585585868000635,
+    "prefill_tokens_per_second": 2144.6085274569596,
+    "decode_tokens_per_second": 54.249673772871404
+  },
+  {
+    "depth": 131072,
+    "arm": "mellanox",
+    "repetitions": 5,
+    "prompt_tokens": 131074,
+    "generated_tokens": 256,
+    "elapsed_seconds": 68.96848948399929,
+    "ttft_seconds": 64.70339299600164,
+    "prefill_tokens_per_second": 2026.8965275430876,
+    "decode_tokens_per_second": 61.6458821406428
+  },
+  {
+    "depth": 131072,
+    "arm": "usb4-two",
+    "repetitions": 5,
+    "prompt_tokens": 131074,
+    "generated_tokens": 256,
+    "elapsed_seconds": 69.42316336900149,
+    "ttft_seconds": 64.92586834599933,
+    "prefill_tokens_per_second": 2019.9782306988918,
+    "decode_tokens_per_second": 58.7056035459201
+  }
+]

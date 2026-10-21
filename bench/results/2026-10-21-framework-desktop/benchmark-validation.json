@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "measurements": 40,
+  "matched_pairs": 20,
+  "exact_outputs": 20,
+  "matched_speculative_work": 20,
+  "all_four_rails_per_native_measurement": true,
+  "module_sha256": "5e76733bfe8ec8f233d9a50a6df64f639de35185c3028b24e2cafc0e73a86625",
+  "kernel_warnings": 0,
+  "restored": true,
+  "contexts": [
+    {
+      "depth": 16384,
+      "pairs": 5,
+      "request_speedup": 0.9774655216080492,
+      "prefill_speedup": 0.9953432382768487,
+      "generation_speedup": 0.9462372399196561,
+      "ttft_speedup": 0.9953472011591131
+    },
+    {
+      "depth": 32768,
+      "pairs": 5,
+      "request_speedup": 0.9834354576698305,
+      "prefill_speedup": 0.9903348894600232,
+      "generation_speedup": 0.9589318686108829,
+      "ttft_speedup": 0.9903915457204819
+    },
+    {
+      "depth": 65536,
+      "pairs": 5,
+      "request_speedup": 0.9895371988276582,
+      "prefill_speedup": 0.9942469416547053,
+      "generation_speedup": 0.958608507567592,
+      "ttft_speedup": 0.9942503257039833
+    },
+    {
+      "depth": 131072,
+      "pairs": 5,
+      "request_speedup": 0.9926167171411701,
+      "prefill_speedup": 0.9940038309950946,
+      "generation_speedup": 0.9708767900385099,
+      "ttft_speedup": 0.9940193451581543
+    }
+  ],
+  "overall_request_speedup_equal_context_weights": 0.9857465255830588
+}

@@ -1,0 +1,9 @@
+{
+  "gufo": {
+    "image_id": "e22730aade26f0fe1158d84e74f60163b4ce1e9fcd088752bbf878220967f983",
+    "base": "3c769b11e8179bf940ea463f29abeef0db202cd96dfd861b7d210154d8a1361c",
+    "tag": "localhost/transport-comparison-gufo:pinned-usb4-mlx5",
+    "compute_sha256": "40d93f79dcf11efac7754b862ab4ba23fc2f15b2d7f705a290e68e6f5b442f4a  /usr/local/bin/gufo\n67547be533428edb5a01f6aa3c99c69eb8c5738ce69b111a73ba91c55096e1a7  /opt/rocm/core-10.0/lib/libhsa-runtime64.so.1.21.0\n"
+  },
+  "provider_sha256": "2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0"
+}

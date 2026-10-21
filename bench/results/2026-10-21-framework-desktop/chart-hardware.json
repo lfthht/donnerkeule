@@ -1,0 +1,335 @@
+{
+  "purpose": "Redacted live hardware inventory; board labels replace private hostnames.",
+  "hosts": [
+    {
+      "dmi": {
+        "sys_vendor": "Framework",
+        "product_name": "Desktop (AMD Ryzen AI Max 300 Series)",
+        "product_version": "A6",
+        "board_vendor": "Framework",
+        "board_name": "FRANMFCP06",
+        "board_version": "A6",
+        "bios_version": "03.04",
+        "bios_date": "11/19/2025"
+      },
+      "cpu": {
+        "Architecture": "x86_64",
+        "CPU(s)": "32",
+        "Model name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+        "Thread(s) per core": "2",
+        "Core(s) per socket": "16",
+        "Socket(s)": "1",
+        "NUMA node(s)": "1"
+      },
+      "memory_devices": [
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        }
+      ],
+      "mem_total_kib": 128798528,
+      "kernel": "7.2.6-070206-generic",
+      "nic_pcie": {
+        "current_link_speed": "8.0 GT/s PCIe",
+        "current_link_width": "4",
+        "max_link_speed": "8.0 GT/s PCIe",
+        "max_link_width": "8",
+        "vendor": "0x15b3",
+        "device": "0x1015",
+        "subsystem_vendor": "0x15b3",
+        "subsystem_device": "0x0005",
+        "lspci_command": [
+          "lspci",
+          "-vv",
+          "-s",
+          "0000:c1:00.0"
+        ],
+        "lspci_relevant": "c1:00.0 Ethernet controller: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]\n\tSubsystem: Mellanox Technologies Mellanox Technologies ConnectX-4 Lx Stand-up single-port 40GbE MCX4131A-BCAT\n\t\tLnkCap:\tPort #0, Speed 8GT/s, Width x8, ASPM L1, Exit Latency L1 <4us\n\t\tLnkSta:\tSpeed 8GT/s, Width x4 (downgraded)\n\t\tLnkCap2: Supported Link Speeds: 2.5-8GT/s, Crosslink- Retimer- 2Retimers- DRS-\n\t\tLnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+ EqualizationPhase1+\n\tKernel driver in use: mlx5_core\n\tKernel modules: mlx5_core"
+      },
+      "root_port_pcie": {
+        "current_link_speed": "8.0 GT/s PCIe",
+        "current_link_width": "4",
+        "max_link_speed": "16.0 GT/s PCIe",
+        "max_link_width": "4",
+        "vendor": "0x1022",
+        "device": "0x150b",
+        "subsystem_vendor": "0x1022",
+        "subsystem_device": "0x1453",
+        "lspci_command": [
+          "lspci",
+          "-vv",
+          "-s",
+          "0000:00:02.5"
+        ],
+        "lspci_relevant": "\tSubsystem: Advanced Micro Devices, Inc. [AMD] Device 1453\n\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x4, ASPM L1, Exit Latency L1 <64us\n\t\tLnkSta:\tSpeed 8GT/s, Width x4\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-\n\t\tLnkSta2: Current De-emphasis Level: -3.5dB, EqualizationComplete+ EqualizationPhase1+\n\tCapabilities: [c0] Subsystem: Advanced Micro Devices, Inc. [AMD] Device 1453\n\tKernel driver in use: pcieport\n\tKernel modules: shpchp"
+      },
+      "rdma": {
+        "hca_type": "MT4117",
+        "fw_ver": "14.32.1912",
+        "board_id": "MT_2430110027",
+        "port_state": "4: ACTIVE",
+        "port_rate": "40 Gb/sec (4X QDR)",
+        "gid3_type": "RoCE v2"
+      },
+      "usb4_links": [
+        {
+          "domain_path": "0-2",
+          "rx_speed": "20.0 Gb/s",
+          "rx_lanes": "2",
+          "tx_speed": "20.0 Gb/s",
+          "tx_lanes": "2"
+        },
+        {
+          "domain_path": "1-2",
+          "rx_speed": "20.0 Gb/s",
+          "rx_lanes": "2",
+          "tx_speed": "20.0 Gb/s",
+          "tx_lanes": "2"
+        }
+      ],
+      "host": "board01",
+      "os": "Ubuntu 26.04.1 LTS"
+    },
+    {
+      "dmi": {
+        "sys_vendor": "Framework",
+        "product_name": "Desktop (AMD Ryzen AI Max 300 Series)",
+        "product_version": "A6",
+        "board_vendor": "Framework",
+        "board_name": "FRANMFCP06",
+        "board_version": "A6",
+        "bios_version": "03.04",
+        "bios_date": "11/19/2025"
+      },
+      "cpu": {
+        "Architecture": "x86_64",
+        "CPU(s)": "32",
+        "Model name": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+        "Thread(s) per core": "2",
+        "Core(s) per socket": "16",
+        "Socket(s)": "1",
+        "NUMA node(s)": "1"
+      },
+      "memory_devices": [
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        },
+        {
+          "Size": "16 GB",
+          "Form Factor": "Other",
+          "Type": "LPDDR5",
+          "Type Detail": "Synchronous Unbuffered (Unregistered)",
+          "Speed": "8000 MT/s",
+          "Manufacturer": "Hynix",
+          "Part Number": "H58G78CK8BX185N",
+          "Configured Memory Speed": "8000 MT/s"
+        }
+      ],
+      "mem_total_kib": 128798692,
+      "kernel": "7.2.6-070206-generic",
+      "nic_pcie": {
+        "current_link_speed": "8.0 GT/s PCIe",
+        "current_link_width": "4",
+        "max_link_speed": "8.0 GT/s PCIe",
+        "max_link_width": "8",
+        "vendor": "0x15b3",
+        "device": "0x1015",
+        "subsystem_vendor": "0x15b3",
+        "subsystem_device": "0x0005",
+        "lspci_command": [
+          "lspci",
+          "-vv",
+          "-s",
+          "0000:c0:00.0"
+        ],
+        "lspci_relevant": "c0:00.0 Ethernet controller: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]\n\tSubsystem: Mellanox Technologies Mellanox Technologies ConnectX-4 Lx Stand-up single-port 40GbE MCX4131A-BCAT\n\t\tLnkCap:\tPort #0, Speed 8GT/s, Width x8, ASPM L1, Exit Latency L1 <4us\n\t\tLnkSta:\tSpeed 8GT/s, Width x4 (downgraded)\n\t\tLnkCap2: Supported Link Speeds: 2.5-8GT/s, Crosslink- Retimer- 2Retimers- DRS-\n\t\tLnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+ EqualizationPhase1+\n\tKernel driver in use: mlx5_core\n\tKernel modules: mlx5_core"
+      },
+      "root_port_pcie": {
+        "current_link_speed": "8.0 GT/s PCIe",
+        "current_link_width": "4",
+        "max_link_speed": "16.0 GT/s PCIe",
+        "max_link_width": "4",
+        "vendor": "0x1022",
+        "device": "0x150b",
+        "subsystem_vendor": "0x1022",
+        "subsystem_device": "0x1453",
+        "lspci_command": [
+          "lspci",
+          "-vv",
+          "-s",
+          "0000:00:02.5"
+        ],
+        "lspci_relevant": "\tSubsystem: Advanced Micro Devices, Inc. [AMD] Device 1453\n\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x4, ASPM L1, Exit Latency L1 <64us\n\t\tLnkSta:\tSpeed 8GT/s, Width x4\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-\n\t\tLnkSta2: Current De-emphasis Level: -3.5dB, EqualizationComplete+ EqualizationPhase1+\n\tCapabilities: [c0] Subsystem: Advanced Micro Devices, Inc. [AMD] Device 1453\n\tKernel driver in use: pcieport\n\tKernel modules: shpchp"
+      },
+      "rdma": {
+        "hca_type": "MT4117",
+        "fw_ver": "14.32.1912",
+        "board_id": "MT_2430110027",
+        "port_state": "4: ACTIVE",
+        "port_rate": "40 Gb/sec (4X QDR)",
+        "gid3_type": "RoCE v2"
+      },
+      "usb4_links": [
+        {
+          "domain_path": "0-2",
+          "rx_speed": "20.0 Gb/s",
+          "rx_lanes": "2",
+          "tx_speed": "20.0 Gb/s",
+          "tx_lanes": "2"
+        },
+        {
+          "domain_path": "1-2",
+          "rx_speed": "20.0 Gb/s",
+          "rx_lanes": "2",
+          "tx_speed": "20.0 Gb/s",
+          "tx_lanes": "2"
+        }
+      ],
+      "host": "board02",
+      "os": "Ubuntu 26.04.1 LTS"
+    }
+  ]
+}

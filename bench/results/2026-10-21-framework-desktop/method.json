@@ -1,0 +1,43 @@
+{
+  "arms": [
+    "mellanox",
+    "usb4-two"
+  ],
+  "depths": [
+    16384,
+    32768,
+    65536,
+    131072
+  ],
+  "repetitions": 5,
+  "outputs": 256,
+  "mtp_ceiling": 7,
+  "thinking": "off",
+  "concurrency": 1,
+  "context_capacity": 262144,
+  "fresh_prefix": true,
+  "warmup_excluded": true,
+  "gpu_power": "manual stock FCLK index7 2000MHz, matched both arms",
+  "application_cpu_affinity": "existing engine defaults, matched both arms; not one-CPU perftest affinity",
+  "native_module": "kernel/thunderbolt_ibverbs.ko",
+  "native_sha256": "5e76733bfe8ec8f233d9a50a6df64f639de35185c3028b24e2cafc0e73a86625",
+  "native_mask": [
+    3,
+    3
+  ],
+  "native_lanes_per_controller": 2,
+  "progress_us": 25,
+  "post_burst": 128,
+  "batch_doorbell": true,
+  "coalesce_copy": true,
+  "reuse_buffers": true,
+  "host_direct": true,
+  "memory_path": "GPU DMA-BUF, proven on each rank",
+  "promotion": false,
+  "kernel_parameters_observed": [
+    "amd_iommu=off",
+    "amdgpu.gttsize=126976",
+    "ttm.pages_limit=32505856"
+  ],
+  "engine_distribution": "The qualified engine image is identified by hash; model files and engine images are not distributed in this repository."
+}

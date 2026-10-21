@@ -1,0 +1,34 @@
+[
+  {
+    "operation": "write",
+    "size": 16777216,
+    "reverse": false,
+    "arm": "usb4-two",
+    "bandwidth_gbps": 51.67,
+    "qualified": true,
+    "duration_seconds": 3,
+    "reported_central_seconds": 1,
+    "queue_pairs": 1,
+    "queue_depth": 32,
+    "cq_moderation": 1,
+    "cpu": 0,
+    "memory_path": "host-memory direct DMA",
+    "post_burst": 128
+  },
+  {
+    "operation": "write",
+    "size": 16777216,
+    "reverse": true,
+    "arm": "usb4-two",
+    "bandwidth_gbps": 50.2,
+    "qualified": true,
+    "duration_seconds": 3,
+    "reported_central_seconds": 1,
+    "queue_pairs": 1,
+    "queue_depth": 32,
+    "cq_moderation": 1,
+    "cpu": 0,
+    "memory_path": "host-memory direct DMA",
+    "post_burst": 128
+  }
+]

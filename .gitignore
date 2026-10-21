@@ -25,6 +25,7 @@ result-*
 bench/results/**/result/
 bench/results/**/*.json
 bench/results/**/*.jsonl
+!bench/results/2026-10-21-framework-desktop/*.json
 bench/results/**/logs/
 thunderbolt-ibverbs/results/
 
