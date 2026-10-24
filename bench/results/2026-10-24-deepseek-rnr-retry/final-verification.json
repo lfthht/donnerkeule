@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "hosts": [
+    {
+      "host": "aiserver01",
+      "saved_image": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41",
+      "model_quality_and_gufo_preferences_unchanged": true,
+      "containers": "",
+      "hip": "HIP_RESULT=42",
+      "nodebool": [
+        "active",
+        "active",
+        "active"
+      ],
+      "backend": {
+        "message": "API is healthy.",
+        "code": 200,
+        "data": {}
+      },
+      "compute": {
+        "live": true,
+        "ready": true
+      },
+      "checked_recovery_transactions": 11,
+      "trial_recovery_disarmed": true,
+      "new_gpu_or_qp1_errors": 0
+    },
+    {
+      "host": "aiserver02",
+      "saved_image": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41",
+      "model_quality_and_gufo_preferences_unchanged": true,
+      "containers": "",
+      "hip": "HIP_RESULT=42",
+      "checked_recovery_transactions": 11,
+      "trial_recovery_disarmed": true,
+      "new_gpu_or_qp1_errors": 0
+    }
+  ]
+}

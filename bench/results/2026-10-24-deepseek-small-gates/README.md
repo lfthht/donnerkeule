@@ -220,3 +220,58 @@ separately reproduced an overly short RNR retry budget; the subsequently
 qualified [retry correction](../2026-10-24-deepseek-rnr-retry/README.md) is now
 selected on both hosts. The original event did not record its precise WC
 status, so that specific cause is not claimed as proven.
+
+## Completed CQ4 repeat qualification
+
+After the receiver-ready correction, six fresh off/on/on/off/off/on full requests
+compared CQ8 with CQ4 on the same retry-corrected image, kernel, stock clock and
+CPU placement. Median prefill was **443.73 vs 445.26 tok/s (+0.34%)** and generation
+**17.92 vs 17.97 tok/s (+0.28%)**, with overlapping samples. Every output was
+canonical. Both cables carried payload and all requests completed without a
+transport error. This does not reproduce the isolated 18.31 result. CQ8 is retained.
+
+All three controls had 236 score transfers and 68,001,280 score bytes. Only one
+candidate had exactly matching available checkpoint counts, final score-transfer
+count and score bytes; it measured 18.02 tok/s. Other candidates differed in the
+final score work, despite identical text. The work-matched subgroup is too small
+to establish an improvement. No Mellanox parity claim is made. See
+[measurements](cq4-repeat.csv), [work groups and medians](cq4-repeat.json) and
+[cable proofs](cq4-repeat-proof.json).
+
+## Final DSpark policy screens
+
+The retry-corrected runtime was also tested with explicit confidence thresholds
+0.5, 0.8 and 0.95, plus pure target decoding without the draft support model.
+An explicit threshold selects the engine's fixed-threshold proposal policy,
+retaining coarse adaptive backoff instead of its default cost scheduler. It
+changes which drafts are proposed, never the target verification criterion.
+The target-only case removes both `--dspark` and `--mtp-model`; the initial
+setup attempt left the support-model argument and was rejected before loading,
+then corrected. It is not included as a performance result.
+
+All scored requests use the same target, precision, numerical binaries, 16,127
+input tokens, 256 outputs, context allocation 16,384, CQ8, nice0, progress 25 us,
+stock fabric request and both cables. The driver is reloaded before each.
+
+| Policy | Prefill tok/s | Generation tok/s |
+|---|---:|---:|
+| Adaptive control A | 446.03 | 17.90 |
+| Target only | 441.73 | 17.94 |
+| Fixed confidence 0.5 | 445.77 | 17.74 |
+| Fixed confidence 0.8 | 444.20 | 17.94 |
+| Fixed confidence 0.95 | 446.37 | 17.86 |
+| Adaptive control B | 446.47 | 17.87 |
+
+No single alternative establishes a repeatable generation improvement against
+the observed control variation. The 0.8 and 0.95 outputs also differ from the
+canonical response; the latter is the previously observed alternate variant.
+Both controls, target-only and threshold 0.5 are canonical. All transfer/quality
+settings are unchanged and all requests complete with both-cable payload.
+Adaptive DSpark is retained. See [measurements](dspark-final-followup.csv) and
+[work counts and cable proofs](dspark-final-followup.json).
+
+No further reliable generation gain was found in the tested CPU placement,
+priority, CQ cadence, driver progress, credit limit, score acknowledgement or
+DSpark policy families. The verified smaller-gate improvement and receiver-ready
+retry correction remain selected. The historical single Mellanox generation
+reference is still not matched by a repeat-qualified new profile.

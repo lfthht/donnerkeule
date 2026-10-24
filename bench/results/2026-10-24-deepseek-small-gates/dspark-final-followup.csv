@@ -1,0 +1,7 @@
+run,policy,confidence_override,dspark_enabled,prefill_tps,generation_tps,output_sha256,score_transfers,score_rx_bytes,both_cables
+0,control-a,,True,446.03,17.9,674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6,236,68001280,True
+1,target-only,,False,441.73,17.94,674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6,257,66449920,True
+2,fixed-0.5,0.5,True,445.77,17.74,674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6,230,69035520,True
+3,fixed-0.8,0.8,True,444.2,17.94,b3194ec0030bd68eaf089a17dbf9a99417b70f53b359e6f58faea4a2fd362a87,234,66967040,True
+4,fixed-0.95,0.95,True,446.37,17.86,2d923d794b5d891864051f9e1e6f826ac9fb4ef2e93eeb0ef36944aebe7ad260,237,66708480,True
+5,control-b,,True,446.47,17.87,674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6,236,68259840,True

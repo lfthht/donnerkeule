@@ -1,0 +1,234 @@
+{
+  "complete": true,
+  "requests": 6,
+  "candidate_settings": {
+    "cq_yield": 4,
+    "nice": 0,
+    "poll_us": 25
+  },
+  "all_outputs_identical": true,
+  "both_cables": true,
+  "image": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41",
+  "module": {
+    "sha256": "2a3d4bea358ba71ae90615111ff50cb4e2927ca9a99f456f0ae41dca3047357d",
+    "srcversion": "6034C2FBE3EF9C733BA8B4C"
+  },
+  "control_median": {
+    "prefill_tps": 443.73,
+    "generation_tps": 17.92
+  },
+  "candidate_median": {
+    "prefill_tps": 445.26,
+    "generation_tps": 17.97
+  },
+  "generation_gain_percent": 0.2790178571428381,
+  "work_groups": [
+    {
+      "work_sha256": "235d0298028f4c7c18c2a87e1084c7737ed3d020720a77a97a3551d63ccebe73",
+      "work": {
+        "logits_calls": 236,
+        "score_rx_bytes": 68001280,
+        "available_checkpoints": [
+          {
+            "calls": 32,
+            "counts": {
+              "1": 31,
+              "6": 1
+            }
+          },
+          {
+            "calls": 64,
+            "counts": {
+              "1": 63,
+              "6": 1
+            }
+          },
+          {
+            "calls": 96,
+            "counts": {
+              "1": 93,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 128,
+            "counts": {
+              "1": 125,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 160,
+            "counts": {
+              "1": 156,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 192,
+            "counts": {
+              "1": 188,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 224,
+            "counts": {
+              "1": 219,
+              "3": 1,
+              "5": 1,
+              "6": 3
+            }
+          }
+        ]
+      },
+      "control_n": 3,
+      "candidate_n": 1,
+      "control_generation_median": 17.92,
+      "candidate_generation_median": 18.02
+    },
+    {
+      "work_sha256": "622aa3d91b45d0cf6235a804e89dec8f3268baaf33b1a9b2454d34758f2897f4",
+      "work": {
+        "logits_calls": 230,
+        "score_rx_bytes": 67742720,
+        "available_checkpoints": [
+          {
+            "calls": 32,
+            "counts": {
+              "1": 31,
+              "6": 1
+            }
+          },
+          {
+            "calls": 64,
+            "counts": {
+              "1": 63,
+              "6": 1
+            }
+          },
+          {
+            "calls": 96,
+            "counts": {
+              "1": 93,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 128,
+            "counts": {
+              "1": 125,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 160,
+            "counts": {
+              "1": 156,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 192,
+            "counts": {
+              "1": 188,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 224,
+            "counts": {
+              "1": 218,
+              "3": 1,
+              "6": 5
+            }
+          }
+        ]
+      },
+      "control_n": 0,
+      "candidate_n": 1,
+      "control_generation_median": null,
+      "candidate_generation_median": 17.97
+    },
+    {
+      "work_sha256": "b6f17e6d1783e0af1ff7412a6c3d1ee0fa2569083f07b3cefd22e60d765c70f1",
+      "work": {
+        "logits_calls": 236,
+        "score_rx_bytes": 68259840,
+        "available_checkpoints": [
+          {
+            "calls": 32,
+            "counts": {
+              "1": 31,
+              "6": 1
+            }
+          },
+          {
+            "calls": 64,
+            "counts": {
+              "1": 63,
+              "6": 1
+            }
+          },
+          {
+            "calls": 96,
+            "counts": {
+              "1": 93,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 128,
+            "counts": {
+              "1": 125,
+              "3": 1,
+              "6": 2
+            }
+          },
+          {
+            "calls": 160,
+            "counts": {
+              "1": 156,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 192,
+            "counts": {
+              "1": 188,
+              "3": 1,
+              "6": 3
+            }
+          },
+          {
+            "calls": 224,
+            "counts": {
+              "1": 219,
+              "3": 1,
+              "5": 1,
+              "6": 3
+            }
+          }
+        ]
+      },
+      "control_n": 0,
+      "candidate_n": 1,
+      "control_generation_median": null,
+      "candidate_generation_median": 17.87
+    }
+  ],
+  "selected": false,
+  "retained_cq_yield": 8,
+  "baseline_restored": true,
+  "median_prefill_gain_percent": 0.34480427286862625
+}

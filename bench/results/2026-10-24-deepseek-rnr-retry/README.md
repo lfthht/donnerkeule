@@ -83,6 +83,15 @@ backend and Compute health pass, with owned model containers stopped. See
 [native-check.json](native-check.json) and [validation.json](validation.json).
 
 The earlier [matched smaller-gate improvement](../2026-10-24-deepseek-small-gates/README.md)
-is retained. The isolated faster CQ4 screen still needs repeat qualification;
-no Mellanox parity is claimed from it. Raw commands, private recovery paths,
+is retained. The subsequent CQ4 repeat measured only 17.92 vs 17.97 generation tok/s
+with overlap, so CQ8 is retained. No Mellanox parity is claimed. Raw commands, private recovery paths,
 full model logs, credentials, models and engine/module binaries are not distributed.
+
+Final post-test checks confirm the selected image on both hosts, unchanged model,
+quality and Gufo preferences, no owned model containers, both GPU smoke checks,
+healthy Nodebool/backend/Compute, and all eleven checked recovery transactions
+disarmed on each host. No scoped new GPU fault or QP1 messages appear. The
+further fixed-threshold and target-only DSpark screens establish no additional
+speed gain, so adaptive DSpark remains selected. See
+[final verification](final-verification.json) and
+[policy screens](../2026-10-24-deepseek-small-gates/dspark-final-followup.csv).
