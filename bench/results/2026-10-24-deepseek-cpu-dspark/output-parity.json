@@ -1,0 +1,137 @@
+{
+  "hashing": "UTF-8 decoded text, excluding logger quotes and its final newline",
+  "runs": [
+    {
+      "label": "baseline-screen-a",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "cq16",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "cq256",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "physical16",
+      "output_tokens": 128,
+      "sha256": null,
+      "matches_128_baseline": null
+    },
+    {
+      "label": "taskset16",
+      "output_tokens": 128,
+      "sha256": "c08782f2a0e583b1058d30d04e4805599ed0f1b3b4d61440456b2044370791d0",
+      "matches_128_baseline": false
+    },
+    {
+      "label": "taskset8",
+      "output_tokens": 128,
+      "sha256": null,
+      "matches_128_baseline": null
+    },
+    {
+      "label": "baseline-screen-b",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "service-core2",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "service-core10",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "dspark-diagnostic-baseline",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "dspark-no-backoff",
+      "output_tokens": 128,
+      "sha256": "c3a395b463c1f1d7dcd04c5e91fe7c89cd2ad559d06d4f6bd82768f0124a9023",
+      "matches_128_baseline": false
+    },
+    {
+      "label": "dspark-width1",
+      "output_tokens": 128,
+      "sha256": "c08782f2a0e583b1058d30d04e4805599ed0f1b3b4d61440456b2044370791d0",
+      "matches_128_baseline": false
+    },
+    {
+      "label": "dspark-width3",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "dspark-width5",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "irq01-service2",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "irq89-service10",
+      "output_tokens": 128,
+      "sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "matches_128_baseline": true
+    },
+    {
+      "label": "confirm-0-baseline",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    },
+    {
+      "label": "confirm-1-placement",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    },
+    {
+      "label": "confirm-2-placement",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    },
+    {
+      "label": "confirm-3-baseline",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    },
+    {
+      "label": "confirm-4-baseline",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    },
+    {
+      "label": "confirm-5-placement",
+      "output_tokens": 256,
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "matches_128_baseline": null
+    }
+  ]
+}

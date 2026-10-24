@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "saved_runtime_changed": false,
+  "saved_model_quality_gufo_preferences_unchanged": true,
+  "original_requested_irq_masks_restored": true,
+  "trial_timers_closed": true,
+  "temporary_authentication_closed": true,
+  "hosts": [
+    {
+      "host": "aiserver01",
+      "saved_image": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+      "HIP_RESULT": "HIP_RESULT=42",
+      "usb4_service": "active",
+      "usb4_startup": "enabled",
+      "gpu_power": "auto",
+      "remaining_model_containers": false,
+      "remaining_qps": 0,
+      "remaining_host_maps": 0
+    },
+    {
+      "host": "aiserver02",
+      "saved_image": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+      "HIP_RESULT": "HIP_RESULT=42",
+      "usb4_service": "active",
+      "usb4_startup": "enabled",
+      "gpu_power": "auto",
+      "remaining_model_containers": false,
+      "remaining_qps": 0,
+      "remaining_host_maps": 0
+    }
+  ],
+  "nodebool_health_passed": true
+}

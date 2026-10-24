@@ -42,6 +42,12 @@ generation from **9.58 to 16.23 tok/s (+69.42%)**. The older single-run Mellanox
 reference is 18.27 tok/s. This is an opt-in engine-only change; the selected
 kernel driver is unchanged.
 
+The subsequent [CPU/DSpark comparison](../bench/results/2026-10-24-deepseek-cpu-dspark/README.md)
+retained that runtime. Six full requests measured **16.44 vs 16.60 tok/s** for
+baseline versus IRQ/worker placement, only **+0.97%**, below the default-change
+gate. More frequent or fixed-width DSpark drafting regressed. All full-run
+outputs matched; no additional optimization was promoted.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain

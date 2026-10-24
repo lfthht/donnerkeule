@@ -1,0 +1,58 @@
+{
+  "image": {
+    "tag": "localhost/deepseek1017-ds4:usb4-cq64",
+    "image_id": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+    "timestamp": 1792850947,
+    "binary_sha256": "57cd44d85bade3c0e324d4f620d6ea41d48b2c7c3b8e7286e353e2457e877e42  /usr/local/bin/ds4\n3b470861210ec1aa79ea40362aec3f743fc0ba2d9e86b1cf35c4805a60819f4b  /usr/local/bin/ds4-server\n0660056495762b3ea8ad2ae3750ec907e82cf0a3cc7024eaca7f637dd3f6d833  /usr/local/bin/ds4-bench\n2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0  /usr/lib64/libibverbs/libusb4_rdma-rdmav59.so\n69cfd3277b627dec1641166600764d2ee4c34bdfc8519e6ffe58a7e0d51bfbc0  /opt/rocm/core-10.0/lib/libhsa-runtime64.so.1.21.0\n",
+    "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+    "gpu_object_identical_to_qualified_base": true,
+    "hsa_runtime_changed": false,
+    "source": "optional cooperative completion polling on UBG3",
+    "saved_profile_changed": false
+  },
+  "quality_proof": {
+    "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+    "identical_to_current_and_mellanox_qualified_base": true,
+    "shader_and_numeric_kernel_changes": false,
+    "gpu_health_host1": "HIP_RESULT=42",
+    "gpu_health_host2": "HIP_RESULT=42"
+  },
+  "installed_source": {
+    "baseline_image": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+    "shim_sha256": "99aa08f645a3f74ba7570f914892a547f73671042bfd53a3edaafd09bf77d2a8",
+    "installed_ds4_c_sha256": "82c1217688653fe621c9b9284e6bbda331fe9c2e0edb8ca31fa7f45d47b16a5b",
+    "matches_retained_source": true,
+    "source_hash": "3c6c4fc3a5ea51f168e3a9382189b3a6bb4631c37d3f29ddf035c10541ee5e86"
+  },
+  "driver_srcversion": "BBDB140372B8EC1C925667B",
+  "model_math_flags": {
+    "DS4_ROCM_ENABLE_MXFP4_TILE4": "1",
+    "DS4_ROCM_MXFP4_DOWN_RGROUP": "4"
+  },
+  "normal_native_logging": {
+    "DS4_BENCH_SPEC_TRACE": "1",
+    "DS4_METAL_GRAPH_PREFILL_PROFILE": "1"
+  },
+  "no_driver_provider_hsa_numeric_kernel_or_model_change": true,
+  "affinity_diagnostic": {
+    "routine": "_ZL15rocm_tp_servicePv",
+    "elf_type": "PIE",
+    "symbol_values": {
+      "ds4-bench": "0x1f50460",
+      "ds4": "0x1f61260",
+      "ds4-server": "0x1fa53a0"
+    },
+    "compile_flags": [
+      "-shared",
+      "-fPIC",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-ldl",
+      "-pthread"
+    ],
+    "only_thread_start_wrapped": true,
+    "shim_selected_in_saved_runtime": false
+  }
+}

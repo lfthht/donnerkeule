@@ -1,0 +1,85 @@
+{
+  "complete": true,
+  "control_median": {
+    "prefill_tps": 437.31,
+    "generation_tps": 16.44
+  },
+  "candidate_median": {
+    "prefill_tps": 436.09,
+    "generation_tps": 16.6
+  },
+  "all_outputs_identical": true,
+  "both_cables_all_runs": true,
+  "requests": 6,
+  "generation_gain_percent": 0.9732360097323589,
+  "meets_5_percent_selection_gate": false,
+  "confirmation_rows": [
+    {
+      "label": "confirm-0-baseline",
+      "prefill_tps": 437.31,
+      "generation_tps": 16.46,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    },
+    {
+      "label": "confirm-1-placement",
+      "prefill_tps": 434.97,
+      "generation_tps": 16.6,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    },
+    {
+      "label": "confirm-2-placement",
+      "prefill_tps": 436.09,
+      "generation_tps": 16.65,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    },
+    {
+      "label": "confirm-3-baseline",
+      "prefill_tps": 435.76,
+      "generation_tps": 16.36,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    },
+    {
+      "label": "confirm-4-baseline",
+      "prefill_tps": 437.52,
+      "generation_tps": 16.44,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    },
+    {
+      "label": "confirm-5-placement",
+      "prefill_tps": 437.82,
+      "generation_tps": 16.57,
+      "output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "both_cables": true
+    }
+  ],
+  "baseline_image": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+  "prior_256_token_result": {
+    "prefill_tps": 437.05,
+    "generation_tps": 16.23
+  },
+  "historical_mellanox_reference": {
+    "prefill_tps": 420.98,
+    "generation_tps": 18.27,
+    "requests": 1,
+    "new_matched_mellanox_ab": false
+  },
+  "selected_runtime_changed": false,
+  "quality_settings_changed": false,
+  "dspark_enabled": true,
+  "confirmation_instrumentation": "No added host instrumentation, preload profiler or DSpark stats/log; native benchmark logging retained. Candidate has startup-only affinity shim.",
+  "irq_restoration": "Requested masks restored after each trial; effective IRQ vector choices remain kernel-managed under broad masks.",
+  "candidate_cpu_policy": {
+    "tp_transport_service_cpu": 10,
+    "usb4_controller_irq_cpus": [
+      8,
+      9
+    ],
+    "all_other_inference_threads_unrestricted": true
+  },
+  "default_selection_decision": "retain existing runtime; 0.97% measured generation difference does not meet 5% default-change gate"
+}

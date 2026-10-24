@@ -1,0 +1,1342 @@
+[
+  {
+    "label": "baseline-screen-a",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 936378,
+            "rx": 936378
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 936200,
+            "rx": 936200
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 936370,
+            "rx": 936370
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 936110,
+            "rx": 936110
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 935354,
+            "rx": 935354
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 935176,
+            "rx": 935176
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 935346,
+            "rx": 935346
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 935086,
+            "rx": 935086
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "cq16",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 971114,
+            "rx": 971114
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 970936,
+            "rx": 970936
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 971106,
+            "rx": 971106
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 970846,
+            "rx": 970846
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 971114,
+            "rx": 971114
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 970936,
+            "rx": 970936
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 971106,
+            "rx": 971106
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 970846,
+            "rx": 970846
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "cq256",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 927594,
+            "rx": 927594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 927416,
+            "rx": 927416
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 927586,
+            "rx": 927586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 927326,
+            "rx": 927326
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 927594,
+            "rx": 927594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 927416,
+            "rx": 927416
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 927586,
+            "rx": 927586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 927326,
+            "rx": 927326
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "taskset16",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 982474,
+            "rx": 982474
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 982136,
+            "rx": 982136
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 982466,
+            "rx": 982466
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 982046,
+            "rx": 982046
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 982474,
+            "rx": 982474
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 982136,
+            "rx": 982136
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 982466,
+            "rx": 982466
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 982046,
+            "rx": 982046
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "baseline-screen-b",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 983914,
+            "rx": 983914
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 983736,
+            "rx": 983736
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 983906,
+            "rx": 983906
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 983646,
+            "rx": 983646
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 983914,
+            "rx": 983914
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 983736,
+            "rx": 983736
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 983906,
+            "rx": 983906
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 983646,
+            "rx": 983646
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "service-core2",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 965994,
+            "rx": 965994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 965816,
+            "rx": 965816
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 965986,
+            "rx": 965986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 965726,
+            "rx": 965726
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 965994,
+            "rx": 965994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 965816,
+            "rx": 965816
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 965986,
+            "rx": 965986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 965726,
+            "rx": 965726
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "service-core10",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 979306,
+            "rx": 979396
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 979128,
+            "rx": 979218
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 979298,
+            "rx": 979388
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 979038,
+            "rx": 979128
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 978794,
+            "rx": 978794
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 978616,
+            "rx": 978616
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 978786,
+            "rx": 978786
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 978526,
+            "rx": 978526
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "dspark-diagnostic-baseline",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 978282,
+            "rx": 978365
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 978104,
+            "rx": 978193
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 978274,
+            "rx": 978360
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 978014,
+            "rx": 978102
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 977514,
+            "rx": 977523
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 977336,
+            "rx": 977345
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 977506,
+            "rx": 977515
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 977246,
+            "rx": 977255
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "dspark-no-backoff",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 949594,
+            "rx": 949594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 948616,
+            "rx": 948616
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949586,
+            "rx": 949586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 948526,
+            "rx": 948526
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 949594,
+            "rx": 949594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 948616,
+            "rx": 948616
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949586,
+            "rx": 949586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 948526,
+            "rx": 948526
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "dspark-width1",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 949914,
+            "rx": 949914
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 949896,
+            "rx": 949896
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949906,
+            "rx": 949906
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 949806,
+            "rx": 949806
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 949914,
+            "rx": 949914
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 949896,
+            "rx": 949896
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949906,
+            "rx": 949906
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 949806,
+            "rx": 949806
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "dspark-width3",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 935754,
+            "rx": 935809
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 935736,
+            "rx": 935789
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 935746,
+            "rx": 935798
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 935646,
+            "rx": 935698
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 935498,
+            "rx": 935593
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 935480,
+            "rx": 935575
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 935490,
+            "rx": 935585
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 935390,
+            "rx": 935485
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "dspark-width5",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 977434,
+            "rx": 977434
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 973896,
+            "rx": 973896
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 977346,
+            "rx": 977346
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 973806,
+            "rx": 973806
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 977434,
+            "rx": 977434
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 973896,
+            "rx": 973896
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 977346,
+            "rx": 977346
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 973806,
+            "rx": 973806
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "irq01-service2",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 965994,
+            "rx": 965994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 965816,
+            "rx": 965816
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 965986,
+            "rx": 965986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 965726,
+            "rx": 965726
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 965994,
+            "rx": 965994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 965816,
+            "rx": 965816
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 965986,
+            "rx": 965986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 965726,
+            "rx": 965726
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "irq89-service10",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 940394,
+            "rx": 940394
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 940216,
+            "rx": 940216
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 940386,
+            "rx": 940386
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 940126,
+            "rx": 940126
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 940394,
+            "rx": 940394
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 940216,
+            "rx": 940216
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 940386,
+            "rx": 940386
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 940126,
+            "rx": 940126
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-0-baseline",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 986794,
+            "rx": 986794
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 986456,
+            "rx": 986456
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 986786,
+            "rx": 986786
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 986366,
+            "rx": 986366
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 985770,
+            "rx": 985770
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 985432,
+            "rx": 985432
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 985762,
+            "rx": 985762
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 985342,
+            "rx": 985342
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-1-placement",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1025194,
+            "rx": 1025194
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1024856,
+            "rx": 1024856
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1025186,
+            "rx": 1025186
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1024766,
+            "rx": 1024766
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1025194,
+            "rx": 1025194
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1024856,
+            "rx": 1024856
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1025186,
+            "rx": 1025186
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1024766,
+            "rx": 1024766
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-2-placement",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 991994,
+            "rx": 991994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 991656,
+            "rx": 991656
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 991986,
+            "rx": 991986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 991566,
+            "rx": 991566
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 991994,
+            "rx": 991994
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 991656,
+            "rx": 991656
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 991986,
+            "rx": 991986
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 991566,
+            "rx": 991566
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-3-baseline",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 999594,
+            "rx": 999594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 999256,
+            "rx": 999256
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 999586,
+            "rx": 999586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 999166,
+            "rx": 999166
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 999594,
+            "rx": 999594
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 999256,
+            "rx": 999256
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 999586,
+            "rx": 999586
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 999166,
+            "rx": 999166
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-4-baseline",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 984314,
+            "rx": 984314
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 983976,
+            "rx": 983976
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 984306,
+            "rx": 984306
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 983886,
+            "rx": 983886
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 983034,
+            "rx": 983099
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 982696,
+            "rx": 982761
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 983026,
+            "rx": 983091
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 982606,
+            "rx": 982671
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  },
+  {
+    "label": "confirm-5-placement",
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1000106,
+            "rx": 1000106
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 999768,
+            "rx": 999768
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1000098,
+            "rx": 1000098
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 999678,
+            "rx": 999678
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1000106,
+            "rx": 1000175
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 999768,
+            "rx": 999837
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1000098,
+            "rx": 1000168
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 999678,
+            "rx": 999748
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors"
+      }
+    ]
+  }
+]

@@ -100,3 +100,7 @@ not loaded; the effective fix required no driver change.
 Rollback is the preceding UBG3 image on both hosts, or the new runtime with
 `DS4_TP_ROCE_CQ_YIELD=0` in both containers. Exact previous catalog/network bytes
 were retained privately. Container/model binaries are not distributed here.
+
+The later [CPU/DSpark follow-up](../2026-10-24-deepseek-cpu-dspark/README.md)
+kept this runtime selected: placement added only 0.97% in its full comparison,
+and the tested DSpark alternatives regressed. No additional change was promoted.
