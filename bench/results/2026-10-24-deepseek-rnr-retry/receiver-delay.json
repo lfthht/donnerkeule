@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "retry": 3,
+      "receiver_delay_ms": 50,
+      "never_posts": false,
+      "passed": true
+    },
+    {
+      "retry": 7,
+      "receiver_delay_ms": 50,
+      "never_posts": false,
+      "passed": true
+    },
+    {
+      "retry": 7,
+      "receiver_delay_ms": 0,
+      "never_posts": true,
+      "passed": true
+    }
+  ],
+  "logs": [
+    {
+      "case": 0,
+      "ranks": [
+        "ds4-tp: waiting for worker on <leader>:29280 ...\nds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: worker connected, transport=rdma gate-timeout=750ms\nRESULT=PASS retry=3 delay_ms=50 never=0 total_ms=151.546\n",
+        "ds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: leader connected, transport=rdma gate-timeout=750ms\nSEND_WC status=13 vendor=0 elapsed_ms=10.063\nRESULT=PASS retry=3 delay_ms=50 never=0 total_ms=10.701\n"
+      ]
+    },
+    {
+      "case": 1,
+      "ranks": [
+        "ds4-tp: waiting for worker on <leader>:29281 ...\nds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: worker connected, transport=rdma gate-timeout=750ms\nRESULT=PASS retry=7 delay_ms=50 never=0 total_ms=156.095\n",
+        "ds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: leader connected, transport=rdma gate-timeout=750ms\nSEND_WC status=0 vendor=0 elapsed_ms=52.251\nRESULT=PASS retry=7 delay_ms=50 never=0 total_ms=154.674\n"
+      ]
+    },
+    {
+      "case": 2,
+      "ranks": [
+        "ds4-tp: waiting for worker on <leader>:29282 ...\nds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: worker connected, transport=rdma gate-timeout=750ms\nRESULT=PASS retry=7 delay_ms=0 never=1 total_ms=852.473\n",
+        "ds4-tp: RoCE RC device=usb4_rdma0 port=1 gid-index=1 window=4 chunk=2097152 host-staging=16MiB\nds4-tp: packed RDMA gates=0 (protocol UBG3, max 64KiB)\nds4-tp: full-precision RDMA logits=0 gate_alignment=65536\nds4-tp: leader connected, transport=rdma gate-timeout=750ms\nAPPLICATION_DEADLINE elapsed_ms=750.000\nRESULT=PASS retry=7 delay_ms=0 never=1 total_ms=858.237\n"
+      ]
+    }
+  ],
+  "source_default_rnr_before": 3,
+  "selected_rnr": 7,
+  "ack_retry_unchanged": 3,
+  "timeout_exponent_unchanged": 14,
+  "application_deadline_default_ms_unchanged": 750
+}

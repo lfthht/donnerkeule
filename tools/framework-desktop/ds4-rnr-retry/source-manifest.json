@@ -1,0 +1,19 @@
+{
+  "feature": "Receiver-not-ready retries remain available until the existing application deadline",
+  "prior_rnr_retry": 3,
+  "rnr_retry": 7,
+  "ack_retry_unchanged": 3,
+  "gate_timeout_unchanged_ms": 750,
+  "wire_changed": false,
+  "gpu_math_changed": false,
+  "files": {
+    "ds4_tp.c": {
+      "before_sha256": "439711fe6e0a46045e01b17ef47ae4ccffb3767f8fd370308a12b0927d133eb2",
+      "after_sha256": "439711fe6e0a46045e01b17ef47ae4ccffb3767f8fd370308a12b0927d133eb2"
+    },
+    "ds4_tp_roce.h": {
+      "before_sha256": "7baf15a94883387596809b3abd2c399e56b6327b1eec8df7d4225d25fe6166f1",
+      "after_sha256": "f1e72983d739808424d3e48265d82607d80e777626968020bea9c145b24c2dee"
+    }
+  }
+}

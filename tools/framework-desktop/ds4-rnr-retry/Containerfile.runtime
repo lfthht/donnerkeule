@@ -1,0 +1,4 @@
+FROM 842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf
+COPY --chown=0:0 --chmod=0755 ds4 ds4-server ds4-bench ds4-eval ds4-agent /usr/local/bin/
+ENV DS4_TP_ROCE_GATE_ALIGN=4096
+LABEL io.deepseek.usb4.change="RNR tolerance bounded by existing application deadline; numerical kernels unchanged"

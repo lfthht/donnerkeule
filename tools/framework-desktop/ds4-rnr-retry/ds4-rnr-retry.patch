@@ -1,0 +1,29 @@
+--- a/ds4_tp_roce.h
++++ b/ds4_tp_roce.h
+@@ -193,25 +193,25 @@
+     struct ibv_qp_attr a={0};
+     a.qp_state=IBV_QPS_RTR;a.path_mtu=peer.mtu<(uint32_t)r->mtu?(enum ibv_mtu)peer.mtu:r->mtu;
+     a.dest_qp_num=peer.qpn;a.rq_psn=peer.psn;a.max_dest_rd_atomic=1;a.min_rnr_timer=12;
+     a.ah_attr.is_global=1;a.ah_attr.port_num=port;memcpy(&a.ah_attr.grh.dgid,peer.gid,16);
+     a.ah_attr.grh.sgid_index=tp->opt.rdma_gid_index;a.ah_attr.grh.hop_limit=64;
+     const char *tc_text=getenv("DS4_RDMA_TRAFFIC_CLASS");
+     if(tc_text) {
+         char *end=NULL;long tc=strtol(tc_text,&end,10);
+         if(!*tc_text || *end || tc<0 || tc>255) { errno=EINVAL;goto fail; }
+         a.ah_attr.grh.traffic_class=(uint8_t)tc;
+     }
+     if(r->modify_qp(r->qp,&a,IBV_QP_STATE|IBV_QP_AV|IBV_QP_PATH_MTU|IBV_QP_DEST_QPN|IBV_QP_RQ_PSN|IBV_QP_MAX_DEST_RD_ATOMIC|IBV_QP_MIN_RNR_TIMER)) goto fail;
+-    memset(&a,0,sizeof(a));a.qp_state=IBV_QPS_RTS;a.sq_psn=r->psn;a.timeout=14;a.retry_cnt=3;a.rnr_retry=3;a.max_rd_atomic=1;
++    memset(&a,0,sizeof(a));a.qp_state=IBV_QPS_RTS;a.sq_psn=r->psn;a.timeout=14;a.retry_cnt=3;a.rnr_retry=7;a.max_rd_atomic=1;
+     if(r->modify_qp(r->qp,&a,IBV_QP_STATE|IBV_QP_SQ_PSN|IBV_QP_TIMEOUT|IBV_QP_RETRY_CNT|IBV_QP_RNR_RETRY|IBV_QP_MAX_QP_RD_ATOMIC)) goto fail;
+     fprintf(stderr,"ds4-tp: RoCE RC device=%s port=%u gid-index=%d window=%u chunk=%u host-staging=%uMiB\n",tp->opt.rdma_device,port,tp->opt.rdma_gid_index,TP_RC_WINDOW,TP_RC_CHUNK,2*TP_RC_WINDOW*TP_RC_CHUNK/(1024*1024));
+     if(r->packed_gates) {
+         if(!tp_roce_prearm(tp)) goto fail;
+         uint64_t ready[2]={tp->epoch,r->window_id},remote[2];
+         if(!ds4_tp_io_exchange(tp->data_fd,ready,remote,sizeof(ready),
+                               tp->gate_timeout_ms,&tp->failed) ||
+            memcmp(ready,remote,sizeof(ready))) { errno=EPROTO;goto fail; }
+     }
+     fprintf(stderr,"ds4-tp: packed RDMA gates=%u (protocol UBG3, max 64KiB)\n",r->packed_gates);
+     fprintf(stderr,"ds4-tp: full-precision RDMA logits=%u gate_alignment=%u\n",r->logits,r->gate_alignment);
+     return 1;

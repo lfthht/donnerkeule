@@ -82,6 +82,15 @@ payloads, model precision and the complete GPU object are unchanged. Paired
 11-case accuracy checks and the Gufo regression pass. The candidate median is
 about **0.93% below** the historical single-run Mellanox result.
 
+A later [receiver-readiness check](../bench/results/2026-10-24-deepseek-rnr-retry/README.md)
+found that the adapter's old RNR setting could exhaust its retries in about
+10 ms during a valid short receiver pause. RNR value 7 now preserves readiness
+retries until the existing application deadline; payload validation and math
+are unchanged. A 50 ms delayed-receiver test delivers exact data, and an
+unready peer still cancels at the 750 ms default deadline with bounded close.
+Paired 11-case accuracy checks and Gufo functional checks pass. This is a
+reliability correction, with no separate generation speedup claim.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain

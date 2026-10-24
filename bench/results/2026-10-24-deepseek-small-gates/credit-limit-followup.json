@@ -1,0 +1,410 @@
+{
+  "requests": 6,
+  "complete": true,
+  "all_outputs_identical": false,
+  "both_cables": true,
+  "gate_alignment_both_arms": 4096,
+  "control_credit_max": 1048576,
+  "candidate_credit_max": 65536,
+  "baseline_image": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+  "candidate_module": {
+    "sha256": "2a3d4bea358ba71ae90615111ff50cb4e2927ca9a99f456f0ae41dca3047357d",
+    "srcversion": "6034C2FBE3EF9C733BA8B4C"
+  },
+  "control_median": {
+    "prefill_tps": 444.05,
+    "generation_tps": 17.92
+  },
+  "candidate_median": {
+    "prefill_tps": 445.72,
+    "generation_tps": 17.88
+  },
+  "generation_gain_percent": -0.22321428571430157,
+  "output_groups": [
+    {
+      "sha256": "2d923d794b5d891864051f9e1e6f826ac9fb4ef2e93eeb0ef36944aebe7ad260",
+      "control_n": 0,
+      "candidate_n": 1,
+      "control_generation_median": null,
+      "candidate_generation_median": 17.8
+    },
+    {
+      "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+      "control_n": 3,
+      "candidate_n": 2,
+      "control_generation_median": 17.92,
+      "candidate_generation_median": 17.884999999999998
+    }
+  ],
+  "selected": false,
+  "selected_limit_restored": 1048576,
+  "recovery_complete": true,
+  "work_checkpoints": [
+    {
+      "run": 0,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 93,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 125,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 156,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 188,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 224,
+          "counts": {
+            "1": 219,
+            "3": 1,
+            "5": 1,
+            "6": 3
+          }
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 93,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 125,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 156,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 188,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 224,
+          "counts": {
+            "1": 219,
+            "3": 1,
+            "5": 1,
+            "6": 3
+          }
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 93,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 125,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 156,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 188,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 224,
+          "counts": {
+            "1": 219,
+            "3": 1,
+            "5": 1,
+            "6": 3
+          }
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 93,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 125,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 156,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 188,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 224,
+          "counts": {
+            "1": 219,
+            "3": 1,
+            "5": 1,
+            "6": 3
+          }
+        }
+      ]
+    },
+    {
+      "run": 4,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 93,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 125,
+            "3": 1,
+            "6": 2
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 156,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 188,
+            "3": 1,
+            "6": 3
+          }
+        },
+        {
+          "calls": 224,
+          "counts": {
+            "1": 219,
+            "3": 1,
+            "5": 1,
+            "6": 3
+          }
+        }
+      ]
+    },
+    {
+      "run": 5,
+      "work_checkpoints": [
+        {
+          "calls": 32,
+          "counts": {
+            "1": 31,
+            "6": 1
+          }
+        },
+        {
+          "calls": 64,
+          "counts": {
+            "1": 63,
+            "6": 1
+          }
+        },
+        {
+          "calls": 96,
+          "counts": {
+            "1": 90,
+            "2": 1,
+            "4": 1,
+            "6": 4
+          }
+        },
+        {
+          "calls": 128,
+          "counts": {
+            "1": 122,
+            "2": 1,
+            "4": 1,
+            "6": 4
+          }
+        },
+        {
+          "calls": 160,
+          "counts": {
+            "1": 152,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "6": 5
+          }
+        },
+        {
+          "calls": 192,
+          "counts": {
+            "1": 184,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "6": 5
+          }
+        }
+      ]
+    }
+  ],
+  "settings_both_arms": {
+    "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+    "gate_alignment": 4096,
+    "host_direct_minimum": 4096,
+    "cq_yield": 8,
+    "requested_stock_fclk_mhz": 2000,
+    "tokens_in": 16127,
+    "tokens_out": 256
+  }
+}

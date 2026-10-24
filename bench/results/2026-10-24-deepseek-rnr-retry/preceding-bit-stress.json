@@ -1,0 +1,237 @@
+{
+  "passed": true,
+  "before_retry_change": true,
+  "rounds": 3,
+  "gate_calls": 63360,
+  "score_calls": 768,
+  "ranks": [
+    {
+      "rank": 1,
+      "tail": [
+        "ROUND=2 STEP=224 ok=1 seq=61618",
+        "ds4-tp: RDMA logits calls=768 tx_bytes=0 rx_bytes=242787840",
+        "RESULT=PASS final_seq=64129"
+      ]
+    },
+    {
+      "rank": 2,
+      "tail": [
+        "ROUND=2 STEP=224 ok=1 seq=61618",
+        "ds4-tp: RDMA logits calls=768 tx_bytes=242787840 rx_bytes=0",
+        "RESULT=PASS final_seq=64129"
+      ]
+    }
+  ],
+  "proof": {
+    "passed": true,
+    "arm": "usb4-two",
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 5021351,
+            "rx": 5020012
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 4960567,
+            "rx": 4959947
+          },
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 5020136,
+            "rx": 5021227
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 4960072,
+            "rx": 4960442
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors",
+        "native_delta": {
+          "dmabuf_cache_hits": 813872,
+          "dmabuf_cache_misses": 8,
+          "dmabuf_host_tx_frames": 19901590,
+          "dmabuf_host_rx_frames": 19961628,
+          "dmabuf_copy_chunks": 6976,
+          "dmabuf_copy_bytes": 471699456,
+          "dmabuf_bulk_calls": 581684,
+          "dmabuf_bulk_frames": 39690478,
+          "dmabuf_credit_granted": 62207,
+          "dmabuf_credit_committed": 19737,
+          "dmabuf_credit_adopted": 40730,
+          "dmabuf_credit_released": 1740,
+          "dmabuf_credit_canceled": 693,
+          "dmabuf_credit_used": 18507,
+          "dmabuf_credit_returned": 1744,
+          "dmabuf_credit_direct": 15011,
+          "dmabuf_host_maps": 4,
+          "data_wr_send": 100128,
+          "data_wr_op_send": 100128,
+          "data_tx_accepted": 100128,
+          "data_tx_posted": 19962126,
+          "data_tx_completed": 19962126,
+          "data_rx_completed": 19961628,
+          "data_rx_ack": 100128
+        },
+        "error_deltas": {
+          "tbnet_identity_minimal_packet_tx_errors": 0,
+          "tbnet_identity_minimal_path_errors": 0,
+          "tbnet_identity_arp_errors": 0,
+          "data_wr_copy_error": 0,
+          "data_wr_path_send_error": 0,
+          "data_wr_retry_enqueue_error": 0,
+          "data_wr_retry_exhausted": 0,
+          "data_wr_rnr_retry_exhausted": 0,
+          "data_wr_timeout": 0,
+          "data_tx_errors": 0,
+          "data_rx_credit_send_error": 0,
+          "data_rx_lost": 0,
+          "data_rx_repost_failed": 0,
+          "data_rx_bad_frame": 0,
+          "data_rx_bad_header": 0,
+          "data_rx_bad_header_parse": 0,
+          "data_rx_bad_header_len": 0,
+          "data_rx_bad_header_path_credit": 0,
+          "data_rx_bad_header_opcode": 0,
+          "data_rx_bad_header_recv_credit": 0,
+          "data_rx_bad_header_ack": 0,
+          "data_rx_bad_header_write": 0,
+          "data_rx_bad_header_read_req": 0,
+          "data_rx_bad_header_mad": 0,
+          "data_tx_ack_error": 0,
+          "data_tx_ack_send_error": 0,
+          "data_tx_read_ack_error": 0,
+          "data_rx_read_ack_error": 0,
+          "data_rx_read_resp_remote_error": 0,
+          "data_rx_read_resp_bad_header": 0,
+          "data_rx_read_resp_copy_error": 0,
+          "data_rx_read_req_bad_iova": 0,
+          "data_rx_read_req_alloc_error": 0,
+          "data_rx_read_req_resp_error": 0,
+          "data_rx_bad_peer": 0,
+          "data_rx_qp_error": 0,
+          "data_rx_copy_error": 0,
+          "data_rx_send_len_error": 0,
+          "data_rx_send_prot_error": 0,
+          "data_rx_send_cq_error": 0,
+          "data_rx_send_bad_fragment": 0,
+          "data_rx_send_sequence_error": 0,
+          "data_rx_active_timeout": 0,
+          "data_rx_reorder_timeout": 0,
+          "apple_rx_raw_crc_error": 0
+        }
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 5021227,
+            "rx": 5020136
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 4960442,
+            "rx": 4960072
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 5020012,
+            "rx": 5021351
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 4959947,
+            "rx": 4960567
+          }
+        ],
+        "striping_path": "DMA-BUF descriptors",
+        "native_delta": {
+          "dmabuf_cache_hits": 811076,
+          "dmabuf_cache_misses": 8,
+          "dmabuf_host_tx_frames": 19897338,
+          "dmabuf_host_rx_frames": 19962126,
+          "dmabuf_copy_chunks": 6960,
+          "dmabuf_copy_bytes": 469659648,
+          "dmabuf_bulk_calls": 581684,
+          "dmabuf_bulk_frames": 39690478,
+          "dmabuf_credit_granted": 61446,
+          "dmabuf_credit_committed": 18507,
+          "dmabuf_credit_adopted": 41195,
+          "dmabuf_credit_released": 1744,
+          "dmabuf_credit_canceled": 1,
+          "dmabuf_credit_used": 19737,
+          "dmabuf_credit_returned": 1740,
+          "dmabuf_credit_direct": 17561,
+          "dmabuf_host_maps": 4,
+          "data_wr_send": 100128,
+          "data_wr_op_send": 100128,
+          "data_tx_accepted": 100128,
+          "data_tx_posted": 19961628,
+          "data_tx_completed": 19961628,
+          "data_rx_completed": 19962126,
+          "data_rx_ack": 100128
+        },
+        "error_deltas": {
+          "tbnet_identity_minimal_packet_tx_errors": 0,
+          "tbnet_identity_minimal_path_errors": 0,
+          "tbnet_identity_arp_errors": 0,
+          "data_wr_copy_error": 0,
+          "data_wr_path_send_error": 0,
+          "data_wr_retry_enqueue_error": 0,
+          "data_wr_retry_exhausted": 0,
+          "data_wr_rnr_retry_exhausted": 0,
+          "data_wr_timeout": 0,
+          "data_tx_errors": 0,
+          "data_rx_credit_send_error": 0,
+          "data_rx_lost": 0,
+          "data_rx_repost_failed": 0,
+          "data_rx_bad_frame": 0,
+          "data_rx_bad_header": 0,
+          "data_rx_bad_header_parse": 0,
+          "data_rx_bad_header_len": 0,
+          "data_rx_bad_header_path_credit": 0,
+          "data_rx_bad_header_opcode": 0,
+          "data_rx_bad_header_recv_credit": 0,
+          "data_rx_bad_header_ack": 0,
+          "data_rx_bad_header_write": 0,
+          "data_rx_bad_header_read_req": 0,
+          "data_rx_bad_header_mad": 0,
+          "data_tx_ack_error": 0,
+          "data_tx_ack_send_error": 0,
+          "data_tx_read_ack_error": 0,
+          "data_rx_read_ack_error": 0,
+          "data_rx_read_resp_remote_error": 0,
+          "data_rx_read_resp_bad_header": 0,
+          "data_rx_read_resp_copy_error": 0,
+          "data_rx_read_req_bad_iova": 0,
+          "data_rx_read_req_alloc_error": 0,
+          "data_rx_read_req_resp_error": 0,
+          "data_rx_bad_peer": 0,
+          "data_rx_qp_error": 0,
+          "data_rx_copy_error": 0,
+          "data_rx_send_len_error": 0,
+          "data_rx_send_prot_error": 0,
+          "data_rx_send_cq_error": 0,
+          "data_rx_send_bad_fragment": 0,
+          "data_rx_send_sequence_error": 0,
+          "data_rx_active_timeout": 0,
+          "data_rx_reorder_timeout": 0,
+          "apple_rx_raw_crc_error": 0
+        }
+      }
+    ]
+  }
+}

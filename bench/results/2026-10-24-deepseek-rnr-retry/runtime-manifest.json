@@ -1,0 +1,28 @@
+{
+  "tag": "localhost/deepseek1017-ds4:usb4-rnr7",
+  "image_id": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41",
+  "timestamp": 1792875044,
+  "binaries_sha256": [
+    "b813549e7a545233796c0f915a2c4834b53e1ed6891040dfeef569df0a5022ee",
+    "dc779fc5f86e0dfe7e849acdf572c21b598fdd2831af92a1df95921ccd645853",
+    "3008c69ee09204f73148affb1dff697dd85f81c029d7411e7e867566dcb35366",
+    "8bc071a356e6514c57b96738566cc9426fe8243f666d24605f07027cd4f91c0b",
+    "a9bd394e479af9fa12982e6ced8be29f6403d2966f3491cb08659b2dc2030a1c"
+  ],
+  "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+  "original_hsa_and_provider": true,
+  "base_image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+  "gate_alignment": 4096,
+  "cq_yield": 8,
+  "rnr_retry": 7,
+  "host_records": [
+    {
+      "host": 1,
+      "image_id": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41"
+    },
+    {
+      "host": 2,
+      "image_id": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41"
+    }
+  ]
+}

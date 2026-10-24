@@ -132,3 +132,91 @@ GPU fault or QP1/open-port messages are found. The complete smoke suite and all
 
 Raw commands, private recovery journals and full logs remain local. Credentials,
 private paths, models and engine/module binaries are not distributed.
+
+## Nonselected receive-ahead limit follow-up
+
+A separate six-request off/on/on/off/off/on comparison tested the existing
+`dmabuf_credit_max=65536` parameter against its 1,048,576-byte default, with the
+new selected gate profile identical in both arms. The hypothesis was to avoid
+large speculative receive buffers when gate and score sizes alternate. Median
+prefill was 444.05 vs 445.72 tok/s, and generation **17.92 vs 17.88 tok/s
+(-0.22%)**. The shared-output group gives 17.92 vs 17.885 tok/s. Five outputs
+were canonical; the final candidate produced the previously observed alternate
+variant. Both cables carried payload in every request; all ten preceding
+transport integrity cases passed. This provides no evidence of a useful gain.
+The default 1 MiB limit is restored and retained. See
+[raw measurements](credit-limit-followup.csv) and
+[summary/work counts](credit-limit-followup.json).
+
+## Nonselected empty reciprocal score-message follow-up
+
+A transport-only prototype sent full vocabulary scores in the required
+direction and replaced the reverse zero-filled payload with empty SENDs. Exact
+zero-byte receive completions still drained all prepared WQEs, and private score
+copy-out preceded receive prearming. A distinct bootstrap capability rejected
+mixed peers. The complete GPU object and model settings were unchanged.
+
+All five two-node integrity cases passed, including mixed score/gate sizes,
+float bits, tails, guards, peer mismatch and malformed frame/count failure.
+Portable tests exercised the actual helpers with 1..4 WQEs, eager next DMA,
+completion errors, stale/duplicate IDs, timeouts and shared-queue serialization.
+Both candidate logs confirmed the feature active. Nevertheless, six alternating
+full requests measured **17.93 vs 17.88 generation tok/s (-0.28%)**, and 445.97
+vs 445.03 prefill tok/s. The canonical-output subgroup gives 17.935 vs 17.88;
+the first control produced the known alternate variant. Both cables carried
+payload in every request. The prototype establishes no useful performance gain
+and is not selected or recommended. The qualified runtime is restored. See
+[raw measurements](empty-ack-followup.csv) and
+[summary and prototype provenance](empty-ack-followup.json).
+
+## Further CPU scheduling screens
+
+Eight single full-request screens compared CQ intervals 4/2/1 with the current
+8, per-process nice values 5/10 with 0, and the driver's progress interval 10
+microseconds with 25. The same selected image, stock clock, model, DSpark policy
+and numerical binaries were used throughout. Both drivers were reloaded before
+every request; global parameters were restored afterward. Actual priorities of
+all model threads were checked on both hosts. All outputs were canonical and
+both cables carried payload.
+
+| Setting | Prefill tok/s | Generation tok/s | Score transfers |
+|---|---:|---:|---:|
+| Control A: CQ8, nice0, 25 us | 442.06 | 17.85 | 236 |
+| CQ4 | 444.87 | 18.31 | 230 |
+| CQ2 | 446.20 | 17.92 | 236 |
+| CQ1 | 445.70 | 18.01 | 236 |
+| Nice5 | 442.08 | 17.99 | 236 |
+| Nice10 | 443.13 | 17.85 | 236 |
+| Driver progress 10 us | 444.02 | 18.12 | 230 |
+| Control B: CQ8, nice0, 25 us | 445.19 | 18.06 | 236 |
+
+The isolated 18.31 sample exceeds the historical Mellanox figure, but it also
+has a different speculative-work pattern. Identical text does not prove
+identical draft work. No parity or optimization claim is established by that
+single sample. Lower model process priority does not establish a gain. See
+[raw screens](scheduling-followup.csv) and [work, priority and cable evidence](scheduling-followup.json).
+
+## Nonselected page-sized reciprocal score-message follow-up
+
+A second, separately negotiated prototype used 4096-byte zero acknowledgements
+instead of empty reciprocal SENDs, retaining the ordinary direct-DMA path. Five
+hardware integrity cases and portable helper/fault tests passed; GPU numerical
+code and all quality settings stayed unchanged. Six alternating full requests
+measured **17.92 vs 17.97 generation tok/s (+0.28%)**, with overlapping samples,
+identical output and 236 score transfers each. This does not establish a useful
+generation gain. Prefill medians were 440.56 vs 445.89 tok/s, but later unchanged
+controls reached 445.19. A durable prefill gain has not been confirmed. The
+prototype stays unselected and the qualified runtime is restored. See
+[measurements](page-ack-followup.csv) and [work/prototype provenance](page-ack-followup.json).
+
+## Later baseline abort and retry correction
+
+The first control of a later CQ4 repeat comparison aborted on both ranks with
+an I/O completion failure at layer 2, position 16186, before the candidate was
+tried. It is excluded from timing results. The saved profile recovered, both
+GPUs passed health checks, and no GPU fault or QP1 kernel messages were found.
+An error-instrumented repeat then passed. A controlled receiver-delay test
+separately reproduced an overly short RNR retry budget; the subsequently
+qualified [retry correction](../2026-10-24-deepseek-rnr-retry/README.md) is now
+selected on both hosts. The original event did not record its precise WC
+status, so that specific cause is not claimed as proven.

@@ -210,15 +210,17 @@
   },
   "current_inference_profile": {
     "date": "2026-10-24",
-    "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+    "image_id": "e1ad6c23388e0e0b1c40773d6d2d3e326375ffc34d34c85ae1a9225fbe91ab41",
     "cq_yield": 8,
     "requested_stock_fclk_mhz": 2000,
     "stock_fclk_index": 7,
     "minimum_host_direct_bytes": 4096,
     "gate_alignment": 4096,
     "gpu_math_changed": false,
-    "comparison": "bench/results/2026-10-24-deepseek-small-gates/README.md",
-    "engine_and_kernel_source_unchanged": false
+    "comparison": "bench/results/2026-10-24-deepseek-rnr-retry/README.md",
+    "engine_and_kernel_source_unchanged": false,
+    "rnr_retry": 7,
+    "application_deadline_default_ms": 750
   },
   "october_24_host_credit_baseline": {
     "module_sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
@@ -236,5 +238,17 @@
     "gpu_math_changed": false,
     "comparison": "bench/results/2026-10-24-deepseek-stock-profile/README.md",
     "engine_and_kernel_source_unchanged": true
+  },
+  "october_24_small_gate_profile": {
+    "date": "2026-10-24",
+    "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+    "cq_yield": 8,
+    "requested_stock_fclk_mhz": 2000,
+    "stock_fclk_index": 7,
+    "minimum_host_direct_bytes": 4096,
+    "gate_alignment": 4096,
+    "gpu_math_changed": false,
+    "comparison": "bench/results/2026-10-24-deepseek-small-gates/README.md",
+    "engine_and_kernel_source_unchanged": false
   }
 }

@@ -1,0 +1,25 @@
+{
+  "candidate_setting_not_yet_tried": true,
+  "profile_at_abort": {
+    "image": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+    "cq_yield": 8,
+    "rnr_retry": 3,
+    "kernel_minimum": 4096,
+    "poll_us": 25
+  },
+  "both_ranks_reported": {
+    "errno": "EIO",
+    "layer": 2,
+    "kind": 1,
+    "sequence": 4731,
+    "position": 16186
+  },
+  "completion_status_not_captured": true,
+  "discarded_from_performance_results": true,
+  "saved_profile_recovered": true,
+  "gpu_health_passed_both": true,
+  "no_scoped_gpu_fault_or_qp1_kernel_messages": true,
+  "same_prompt_hash_as_successful_control": true,
+  "subsequent_error_instrumented_baseline_passed": true,
+  "controlled_rnr_test_is_a_separate_reproduced_weakness": true
+}
