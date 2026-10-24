@@ -106,3 +106,7 @@ this qualified result.
 Source/output hashes and rollback instructions accompany the overlay. Raw logs,
 commands and private recovery material remain local. Credentials, model files,
 container binaries and private recovery paths are not distributed.
+
+A later [aligned-host receive-credit update](../2026-10-24-deepseek-host-credits/README.md)
+was separately qualified with this same engine image. Its current kernel
+selection supersedes the driver selection recorded at the time of this report.

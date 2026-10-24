@@ -1,0 +1,21 @@
+{
+  "requests": 4,
+  "complete": true,
+  "all_outputs_identical": true,
+  "both_cables": true,
+  "candidate_alignment": 65536,
+  "candidate_module": {
+    "sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+    "srcversion": "BAF45670669940EC5C9C0CA"
+  },
+  "control_median": {
+    "prefill_tps": 2070.953963918444,
+    "generation_tps": 58.10367171882997
+  },
+  "candidate_median": {
+    "prefill_tps": 2055.048355156245,
+    "generation_tps": 58.937477085912725
+  },
+  "generation_gain_percent": 1.4350304247855883,
+  "gufo_image": "e22730aade26f0fe1158d84e74f60163b4ce1e9fcd088752bbf878220967f983"
+}

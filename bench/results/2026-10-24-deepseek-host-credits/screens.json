@@ -1,0 +1,206 @@
+{
+  "idle_latency": {
+    "complete": true,
+    "original_latency_us": [
+      99,
+      99
+    ],
+    "restored_latency_us": [
+      99,
+      99
+    ],
+    "all_outputs_identical": true,
+    "both_cables": true,
+    "promoted": false,
+    "reason": "10us and 0us do not improve generation; 0us regresses prefill",
+    "rows": [
+      {
+        "label": "idle-0-default",
+        "latency_during_us": [
+          99,
+          99
+        ],
+        "prefill_tps": 436.84,
+        "generation_tps": 16.85
+      },
+      {
+        "label": "idle-1-10us",
+        "latency_during_us": [
+          10,
+          10
+        ],
+        "prefill_tps": 437.06,
+        "generation_tps": 16.81
+      },
+      {
+        "label": "idle-2-0us",
+        "latency_during_us": [
+          0,
+          0
+        ],
+        "prefill_tps": 414.02,
+        "generation_tps": 16.8
+      },
+      {
+        "label": "idle-3-default",
+        "latency_during_us": [
+          99,
+          99
+        ],
+        "prefill_tps": 433.72,
+        "generation_tps": 16.74
+      }
+    ]
+  },
+  "gate_alignment": [
+    {
+      "label": "slot64-a",
+      "prefill_tps": 432.55,
+      "generation_tps": 17.39,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "both_cables": true
+    },
+    {
+      "label": "slot4",
+      "prefill_tps": 433.12,
+      "generation_tps": 17.53,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "both_cables": true
+    },
+    {
+      "label": "slot16",
+      "prefill_tps": 436.36,
+      "generation_tps": 17.37,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "both_cables": true
+    },
+    {
+      "label": "slot64-b",
+      "prefill_tps": 435.06,
+      "generation_tps": 17.24,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "both_cables": true
+    }
+  ],
+  "host_credit_128": [
+    {
+      "label": "off-a",
+      "prefill_tps": 432.5,
+      "generation_tps": 16.79,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "host_credit_used": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "on-a",
+      "prefill_tps": 435.14,
+      "generation_tps": 17.42,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "host_credit_used": [
+        9111,
+        9118
+      ]
+    },
+    {
+      "label": "on-b",
+      "prefill_tps": 429.62,
+      "generation_tps": 17.39,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "host_credit_used": [
+        9119,
+        9124
+      ]
+    },
+    {
+      "label": "off-b",
+      "prefill_tps": 435.54,
+      "generation_tps": 16.88,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d",
+      "host_credit_used": [
+        0,
+        0
+      ]
+    }
+  ],
+  "handshake": [
+    {
+      "label": "installed-control",
+      "passed": true,
+      "prefill_tps": 438.29,
+      "generation_tps": 16.36,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "experimental-default",
+      "passed": true,
+      "prefill_tps": 437.29,
+      "generation_tps": 16.19,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-spins64",
+      "passed": true,
+      "prefill_tps": 437.38,
+      "generation_tps": 16.21,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-pauses8",
+      "passed": true,
+      "prefill_tps": 433.32,
+      "generation_tps": 17.3,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "reduce256",
+      "passed": true,
+      "prefill_tps": 436.98,
+      "generation_tps": 16.12,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "reduce128",
+      "passed": true,
+      "prefill_tps": 432.8,
+      "generation_tps": 15.98,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-pauses32",
+      "passed": true,
+      "prefill_tps": 434.86,
+      "generation_tps": 16.2,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-pauses64",
+      "passed": true,
+      "prefill_tps": 434.72,
+      "generation_tps": 16.19,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-spins80000",
+      "passed": true,
+      "prefill_tps": 437.13,
+      "generation_tps": 16.12,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-matched-budget",
+      "passed": true,
+      "prefill_tps": 435.07,
+      "generation_tps": 16.16,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    },
+    {
+      "label": "ready-pauses8-repeat",
+      "passed": true,
+      "prefill_tps": 437.57,
+      "generation_tps": 16.29,
+      "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+    }
+  ]
+}

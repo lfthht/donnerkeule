@@ -1,0 +1,25 @@
+{
+  "module": {
+    "sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+    "srcversion": "BAF45670669940EC5C9C0CA"
+  },
+  "previous_module_sha256": "0c62484437a192e83d8a8a9cb1ab3169bc9a44ec6feb4b016166cf0677407764",
+  "kernel": "7.2.6-070206-generic",
+  "image_id": "df68ad19223d5413fc1dc00cd9cd7fc4512f8e87f1126a560992997eee87404a",
+  "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+  "provider_sha256": "2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0",
+  "hsa_sha256": "69cfd3277b627dec1641166600764d2ee4c34bdfc8519e6ffe58a7e0d51bfbc0",
+  "parameter": "dmabuf_host_credits=1",
+  "source_default": false,
+  "minimum_direct_host_bytes": 65536,
+  "files": {
+    "kernel/ibdev.c": {
+      "before_sha256": "0744fb4b4b5ed284042124730ccadaaa2021011e8ce59a3f4fa0f6d31927ec7d",
+      "after_sha256": "46ebf6b3f0ee4e287368341e6dd6fcb1c69ef49961c523c70c1aae95a913dfda"
+    },
+    "kernel/verbs_dmabuf.c": {
+      "before_sha256": "9db5d83cc4c820272a41f7aa3264478af1715ba34ce45f61d52dc227f61a7621",
+      "after_sha256": "f16fb64f3a8f962d321d5fe6745d43192d6dd2ca6dc752fa78c07cfa45a455a3"
+    }
+  }
+}

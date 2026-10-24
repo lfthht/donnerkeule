@@ -56,6 +56,13 @@ engine-only overlay is selected on both hosts. The historical Mellanox
 reference remains 18.27 tok/s, about 7% faster in generation; it is not a fresh
 matched interconnect measurement.
 
+The [aligned-host receive-credit comparison](../bench/results/2026-10-24-deepseek-host-credits/README.md)
+then measured **17.00 → 17.54 generation tok/s (+3.18%)** with the same score
+runtime and identical outputs. Prefill was essentially unchanged. The optional
+kernel extension preserves the 64 KiB direct-host threshold; it is selected on
+both hosts with `dmabuf_host_credits=1`. A fresh Gufo regression check passed.
+The old Mellanox generation reference remains about 4% faster.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain
@@ -132,7 +139,9 @@ qualified in this run.
 source hashes and the provider source hash. The October 21 measured module had
 srcversion `57FE5E2439711FB49D9723A`; its provenance is retained under
 `october_21_measurement_baseline`. The October 24 capability correction has
-srcversion `BBDB140372B8EC1C925667B`. Module binary hashes can differ because
+srcversion `BBDB140372B8EC1C925667B`, retained under
+`october_24_capability_baseline`. The later opt-in host receive-credit build has
+srcversion `BAF45670669940EC5C9C0CA`. Module binary hashes can differ because
 build paths and profiling options differ. Build once for matching hosts and
 copy identical module bytes to both.
 
@@ -157,6 +166,17 @@ in both directions. Short bandwidth results and their limits are recorded in
 [the capability-fix validation](../bench/results/2026-10-24-port-capabilities/validation.json).
 The October 21 Gufo measurements retain their original provenance. The later
 October 24 DeepSeek follow-up above used this corrected capability build.
+
+### Optional aligned-host receive credits
+
+`dmabuf_host_credits=1` lets eligible direct host MRs use the existing receive
+ahead credit mechanism. The switch defaults off. Direct-host DMA must be enabled;
+the 64 KiB minimum, 4 KiB alignment, 256 MiB MR limit and QP/PD/access/lifetime
+checks remain in force. Staged host buffers are not pre-armed. The GPU credit
+path and wire protocol remain unchanged. The [qualified comparison](../bench/results/2026-10-24-deepseek-host-credits/README.md)
+records the module, runtime, actual reuse counters and rollback limits. This
+parameter is additional to the base profile below, and was enabled on both
+hosts only after the DeepSeek comparison and Gufo regression checks.
 
 ### Userspace provider
 
