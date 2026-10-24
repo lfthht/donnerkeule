@@ -306,7 +306,7 @@
      }
      return tp_roce_prearm(tp);
  }
- 
+
  /* A small gate travels as one RC message with its complete validated header.
   * RC SEND/RECV provides receive readiness, bounded retries and FIFO ordering;
   * a separate LAN round trip is unnecessary. No output reaches the model
@@ -356,7 +356,7 @@
      r->posted=0;
      return tp_roce_prearm(tp);
  }
- 
+
  #else
  static void tp_roce_close(ds4_tp *tp) { (void)tp; }
  static int tp_roce_probe(ds4_tp *tp,char *err,size_t errlen) {
