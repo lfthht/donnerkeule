@@ -35,6 +35,13 @@ transport improved median generation by 6.54% in six matched requests, with
 identical outputs, while leaving the selected kernel driver unchanged. The
 historical Mellanox generation gap remains unresolved.
 
+The later [cooperative-polling investigation](../bench/results/2026-10-24-deepseek-cq-polling/README.md)
+identified a large completion-progress delay in DeepSeek's tight CPU poll loop.
+With DSpark and GPU math unchanged, six alternating requests improved median
+generation from **9.58 to 16.23 tok/s (+69.42%)**. The older single-run Mellanox
+reference is 18.27 tok/s. This is an opt-in engine-only change; the selected
+kernel driver is unchanged.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain

@@ -1,0 +1,32 @@
+--- a/ds4_tp_roce.h
++++ b/ds4_tp_roce.h
+@@ -1,2 +1,4 @@
+ #include <sched.h>
++#define TPDIAG_UNIT "adapter"
++#include "ds4_tp_diag.h"
+ /* Optional Linux RC SEND/RECV adapter. Setup symbols are loaded lazily;
+@@ -285,2 +287,4 @@
+     const double deadline=tp_now_sec()+((double)tp->gate_timeout_ms+(double)grace_ms)/1000.0;
++    uint32_t diag_kind=0;memcpy(&diag_kind,(const uint8_t*)header+4,sizeof(diag_kind));
++    uint64_t diag_t=tpdiag_begin();
+     memcpy(r->tx,header,header_bytes);
+@@ -288,2 +292,3 @@
+     memset(r->tx+header_bytes+bytes,0,wire_bytes-header_bytes-(size_t)bytes);
++    tpdiag_add(diag_kind,3,diag_t,bytes);diag_t=tpdiag_begin();
+     if(!tp_roce_prepare(tp,wire_bytes)) return 0;
+@@ -293,2 +298,3 @@
+     if(ibv_post_send(r->qp,&wr,&bad)) return 0;
++    tpdiag_add(diag_kind,4,diag_t,wire_bytes);diag_t=tpdiag_begin();
+     unsigned sent=0,received=0;
+@@ -310,2 +316,3 @@
+     }
++    tpdiag_add(diag_kind,5,diag_t,wire_bytes);diag_t=tpdiag_begin();
+     atomic_thread_fence(memory_order_acquire);
+@@ -314,3 +321,6 @@
+     r->posted=0;
+-    return tp_roce_prearm(tp);
++    tpdiag_add(diag_kind,6,diag_t,bytes);diag_t=tpdiag_begin();
++    int diag_ok=tp_roce_prearm(tp);
++    tpdiag_add(diag_kind,7,diag_t,0);
++    return diag_ok;
+ }

@@ -1,0 +1,74 @@
+--- a/ds4_tp_roce.h
++++ b/ds4_tp_roce.h
+@@ -1,3 +1,4 @@
++#include <sched.h>
+ /* Optional Linux RC SEND/RECV adapter. Setup symbols are loaded lazily;
+  * posting/polling use the verbs provider's public inline dispatch. Buffers
+  * are ordinary aligned host memory pinned once by ibv_reg_mr, not GPU MR. */
+@@ -36,7 +37,28 @@
+     uint32_t lengths[TP_RC_WINDOW];
+     unsigned posted;
+     bool packed_gates, prearmed;
++    unsigned cq_yield_interval;
+ };
++/* Match Gufo's cooperative empty-CQ polling without changing completion
++ * semantics. A busy user poller can otherwise defer the kernel ring workers
++ * that make the very completion it is waiting for. Default remains off. */
++static int tp_roce_parse_cq_yield(const char *text,unsigned *out) {
++    *out=0;
++    if(!text) return 1;
++    char *end=NULL;errno=0;
++    unsigned long n=strtoul(text,&end,10);
++    if(errno || !*text || *end || n>4096 || (n && (n&(n-1)))) { errno=EINVAL;return 0; }
++    *out=(unsigned)n;return 1;
++}
++static void tp_roce_cq_pause(unsigned interval,unsigned *spins) {
++    if(!interval) return;
++    if((++*spins & (interval-1))==0) { sched_yield();return; }
++#if defined(__x86_64__) || defined(__i386__)
++    __builtin_ia32_pause();
++#else
++    __asm__ volatile("" ::: "memory");
++#endif
++}
+ static void tp_roce_close(ds4_tp *tp) {
+     struct ds4_tp_roce *r = tp->roce;
+     if (!r) return;
+@@ -98,6 +120,9 @@
+         tp_set_err(err,errlen,"DS4_TP_ROCE_PACKED_GATES must be 0 or 1");goto fail;
+     }
+     r->packed_gates=packed && !strcmp(packed,"1");
++    if(!tp_roce_parse_cq_yield(getenv("DS4_TP_ROCE_CQ_YIELD"),&r->cq_yield_interval)) {
++        tp_set_err(err,errlen,"DS4_TP_ROCE_CQ_YIELD must be 0 or a power of two up to 4096");goto fail;
++    }
+     r->mtu=port.active_mtu;
+     r->pd=r->alloc_pd(r->ctx); if(!r->pd) goto syserr;
+     r->cq=r->create_cq(r->ctx,2*TP_RC_WINDOW,NULL,NULL,0); if(!r->cq) goto syserr;
+@@ -209,11 +234,13 @@
+             covered+=r->lengths[i];
+         }
+         unsigned sent=0,received=0,mask=(1u<<nr)-1u;
++        unsigned cq_spins=0;
+         while(sent!=mask || received!=mask) {
+             if(ds4_tp_failed(tp)) { errno=ECANCELED; return 0; }
+             if(tp_now_sec()>deadline) { errno=ETIMEDOUT; return 0; }
+             struct ibv_wc wc[2*TP_RC_WINDOW];int n=ibv_poll_cq(r->cq,2*TP_RC_WINDOW,wc);
+             if(n<0) return 0;
++            if(n==0) { tp_roce_cq_pause(r->cq_yield_interval,&cq_spins);continue; }
+             for(int i=0;i<n;i++) {
+                 uint64_t id=wc[i].wr_id;
+                 if(wc[i].status!=IBV_WC_SUCCESS) {
+@@ -265,11 +292,13 @@
+                           .opcode=IBV_WR_SEND,.send_flags=IBV_SEND_SIGNALED},*bad=NULL;
+     if(ibv_post_send(r->qp,&wr,&bad)) return 0;
+     unsigned sent=0,received=0;
++    unsigned cq_spins=0;
+     while(!sent || !received) {
+         if(ds4_tp_failed(tp)) { errno=ECANCELED;return 0; }
+         if(tp_now_sec()>deadline) { errno=ETIMEDOUT;return 0; }
+         struct ibv_wc wc[2];int n=ibv_poll_cq(r->cq,2,wc);
+         if(n<0) return 0;
++        if(n==0) { tp_roce_cq_pause(r->cq_yield_interval,&cq_spins);continue; }
+         for(int i=0;i<n;i++) {
+             if(wc[i].status!=IBV_WC_SUCCESS) { errno=EIO;return 0; }
+             if(wc[i].wr_id==r->window_id*16u && wc[i].opcode==IBV_WC_RECV &&

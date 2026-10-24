@@ -15,7 +15,8 @@ pairing with individual new requests.
 Six native requests, OFF/ON/ON/OFF/OFF/ON, concurrency one. Same executable,
 model files, 16,127 input tokens, 256 outputs, 16,384 context allocation, DSpark,
 original selected Donnerkeule driver, automatic GPU power and CPU performance
-governors. Model loading is excluded. No tracing or profiling in scored runs.
+governors. Model loading is excluded. No external tracer or added host-stage profiling
+was used; native benchmark/speculative logging matched the historical commands.
 The only switch is the optional UBG3 control transport. All six decoded outputs
 and speculative-work distributions match exactly. Both physical cables and all
 four rails carry actual payload; no new transport errors were observed.
@@ -70,3 +71,6 @@ on the original 16K/128-output case and was restored. No quality or clock change
 was needed. Invalid early probes after sequential driver restoration revealed
 stale remote generation identities; both hosts were reconnected together and
 reciprocity was checked before subsequent tests.
+
+A [later completion-polling follow-up](../2026-10-24-deepseek-cq-polling/README.md)
+recovered most of the remaining slowdown with DSpark and GPU math unchanged.

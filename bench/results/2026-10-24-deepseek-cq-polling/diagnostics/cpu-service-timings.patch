@@ -1,0 +1,50 @@
+--- a/rocm/ds4_rocm_tp.cuh
++++ b/rocm/ds4_rocm_tp.cuh
+@@ -1,3 +1,5 @@
++#define TPDIAG_UNIT "cpu-service"
++#include "../ds4_tp_diag.h"
+ /* One compute stream, one CPU transport service. Each queue slot has exact
+  * ready/done/consumed generations. The service never calls HIP; the GPU
+  * releases a slot only after its guarded payload consumer has finished. */
+@@ -33,6 +35,7 @@
+     void *ud = nullptr;
+ };
+ static rocm_tp_state g_rocm_tp;
++static uint64_t tpdiag_posted[ROCM_TP_QUEUE];
+ static int g_rocm_tp_failed;
+ static pthread_mutex_t g_rocm_tp_mutex = PTHREAD_MUTEX_INITIALIZER;
+ static pthread_cond_t g_rocm_tp_cond = PTHREAD_COND_INITIALIZER;
+@@ -138,6 +141,9 @@
+         if (ds4_gpu_tp_failed()) return nullptr;
+         const unsigned slot = (unsigned)((seq - 1) % ROCM_TP_QUEUE);
+         const bool spin_scalar = g_rocm_tp.spin_scalar && g_rocm_tp.jobs[slot].kind == 0;
++        const unsigned diag_kind=g_rocm_tp.jobs[slot].kind+1;
++        tpdiag_add(diag_kind,0,tpdiag_posted[slot],0);
++        uint64_t diag_ready=tpdiag_begin();
+         unsigned spins = 0;
+         for (;;) {
+             if (ds4_gpu_tp_failed()) return nullptr;
+@@ -146,12 +152,15 @@
+             if (ready > seq) { rocm_tp_fail(); return nullptr; }
+             rocm_tp_pause(&spins, spin_scalar);
+         }
++        tpdiag_add(diag_kind,1,diag_ready,0);
++        uint64_t diag_exchange=tpdiag_begin();
+         const rocm_tp_job job = g_rocm_tp.jobs[slot];
+         int ok = job.seq == seq;
+         if (ok && job.kind == 0) ok = g_rocm_tp.exchange(g_rocm_tp.ud, job.layer, job.arg, seq);
+         else if (ok && job.kind == 1) ok = g_rocm_tp.batch(g_rocm_tp.ud, job.layer, job.arg, seq);
+         else if (ok && job.kind == 2) ok = g_rocm_tp.big(g_rocm_tp.ud, job.layer, seq, job.out, job.in, job.bytes);
+         else ok = 0;
++        tpdiag_add(diag_kind,2,diag_exchange,job.bytes?job.bytes:(uint64_t)20480);
+         if (!ok) { rocm_tp_fail(); return nullptr; }
+         if (ds4_gpu_tp_failed()) return nullptr;
+         __atomic_store_n(&g_rocm_tp.host->slots[slot].done, seq, __ATOMIC_RELEASE);
+@@ -223,6 +232,7 @@
+     g_rocm_tp.pending_count = count;
+     g_rocm_tp.pending_deferred = defer_wait;
+     pthread_mutex_lock(&g_rocm_tp_mutex);
++    tpdiag_posted[slot]=tpdiag_begin();
+     __atomic_store_n(&g_rocm_tp.posted, seq, __ATOMIC_RELEASE);
+     pthread_cond_signal(&g_rocm_tp_cond);
+     pthread_mutex_unlock(&g_rocm_tp_mutex);

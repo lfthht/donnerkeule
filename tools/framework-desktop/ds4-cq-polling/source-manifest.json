@@ -1,0 +1,11 @@
+{
+  "layer": "cooperative completion polling on the qualified UBG3 source",
+  "opt_in": "DS4_TP_ROCE_CQ_YIELD=64",
+  "model_math_changed": false,
+  "files": {
+    "ds4_tp_roce.h": {
+      "before_sha256": "c8ba2cf4f71a186caf6dbb60214da7a109714a9d7b905f2073ed4dd3705a38f9",
+      "after_sha256": "d72c50f0395f392facbb868604b77827aa526061c3e7e28e01cee4fa73216080"
+    }
+  }
+}
