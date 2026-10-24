@@ -57,3 +57,7 @@ include repeated native 16K inference, actual both-cable payload counters,
 output parity, and text/vision qualification. GPU computation object bytes and
 the ROCm/HSA runtime remained unchanged. Profiling runs are separate from the
 scored requests.
+
+The later [stock-clock combination](../stock-fclk/README.md) qualifies interval 8
+on the full-precision score-routing and aligned-host-credit stack. The older
+interval-64 results above retain their own measured controls.

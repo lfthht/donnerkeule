@@ -204,5 +204,16 @@
     "provider_changed": false,
     "gpu_math_changed": false,
     "validation": "bench/results/2026-10-24-deepseek-host-credits/README.md"
+  },
+  "current_inference_profile": {
+    "date": "2026-10-24",
+    "image_id": "55d3551404f5129dba6cf91671ff2f085bf6079b40e49e0ae255cb958f236ab2",
+    "cq_yield": 8,
+    "requested_stock_fclk_mhz": 2000,
+    "stock_fclk_index": 7,
+    "minimum_host_direct_bytes": 65536,
+    "gpu_math_changed": false,
+    "comparison": "bench/results/2026-10-24-deepseek-stock-profile/README.md",
+    "engine_and_kernel_source_unchanged": true
   }
 }

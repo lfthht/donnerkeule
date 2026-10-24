@@ -1,0 +1,30 @@
+[
+  {
+    "run": 0,
+    "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+    "payload_sha256": "90d160267288c1dc7d30353b9523b205610ae5419f22b7bb6645bc1f18ad6de4",
+    "draft_tokens": 226,
+    "accepted": 150
+  },
+  {
+    "run": 1,
+    "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+    "payload_sha256": "90d160267288c1dc7d30353b9523b205610ae5419f22b7bb6645bc1f18ad6de4",
+    "draft_tokens": 226,
+    "accepted": 150
+  },
+  {
+    "run": 2,
+    "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+    "payload_sha256": "90d160267288c1dc7d30353b9523b205610ae5419f22b7bb6645bc1f18ad6de4",
+    "draft_tokens": 226,
+    "accepted": 150
+  },
+  {
+    "run": 3,
+    "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+    "payload_sha256": "90d160267288c1dc7d30353b9523b205610ae5419f22b7bb6645bc1f18ad6de4",
+    "draft_tokens": 226,
+    "accepted": 150
+  }
+]

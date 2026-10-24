@@ -1,0 +1,16 @@
+[Unit]
+Description=Tested Framework Desktop stock fabric-clock profile
+Wants=systemd-udev-settle.service
+After=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 -B /usr/local/libexec/framework-desktop-fclk/stock_fclk.py apply --state /var/lib/framework-desktop-fclk/baseline.json
+ExecStop=/usr/bin/python3 -B /usr/local/libexec/framework-desktop-fclk/stock_fclk.py restore --state /var/lib/framework-desktop-fclk/baseline.json
+ExecStopPost=/usr/bin/python3 -B /usr/local/libexec/framework-desktop-fclk/stock_fclk.py restore --state /var/lib/framework-desktop-fclk/baseline.json
+TimeoutStartSec=90
+TimeoutStopSec=90
+
+[Install]
+WantedBy=multi-user.target

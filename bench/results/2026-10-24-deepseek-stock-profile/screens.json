@@ -1,0 +1,146 @@
+{
+  "polling": {
+    "complete": true,
+    "screen_only": true,
+    "current_selected_cq_yield": 64,
+    "all_outputs_identical": true,
+    "both_cables": true,
+    "elapsed_seconds": 641.9614701271057,
+    "samples": [
+      {
+        "yield": 64,
+        "prefill_tps": 434.81,
+        "generation_tps": 17.23,
+        "output_matches_control": true
+      },
+      {
+        "yield": 8,
+        "prefill_tps": 435.71,
+        "generation_tps": 17.55,
+        "output_matches_control": true
+      },
+      {
+        "yield": 16,
+        "prefill_tps": 435.86,
+        "generation_tps": 17.34,
+        "output_matches_control": true
+      },
+      {
+        "yield": 32,
+        "prefill_tps": 435.62,
+        "generation_tps": 17.16,
+        "output_matches_control": true
+      },
+      {
+        "yield": 128,
+        "prefill_tps": 434.13,
+        "generation_tps": 17.43,
+        "output_matches_control": true
+      },
+      {
+        "yield": 256,
+        "prefill_tps": 436.19,
+        "generation_tps": 17.28,
+        "output_matches_control": true
+      },
+      {
+        "yield": 0,
+        "prefill_tps": 432.38,
+        "generation_tps": 16.08,
+        "output_matches_control": true
+      },
+      {
+        "yield": 64,
+        "prefill_tps": 435.22,
+        "generation_tps": 17.32,
+        "output_matches_control": true
+      }
+    ]
+  },
+  "affinity": {
+    "complete": true,
+    "screen_only": true,
+    "both_cables": true,
+    "all_outputs_identical": false,
+    "samples": [
+      {
+        "physical_only": false,
+        "prefill_tps": 436.06,
+        "generation_tps": 17.36,
+        "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+      },
+      {
+        "physical_only": true,
+        "prefill_tps": 435.73,
+        "generation_tps": 17.27,
+        "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+      },
+      {
+        "physical_only": true,
+        "prefill_tps": 429.17,
+        "generation_tps": 17.45,
+        "output_sha256": "7f28cb16060b05d4422d6d75d32b95e8cd74b44c2e901589cdda21ad8b02d36d"
+      },
+      {
+        "physical_only": false,
+        "prefill_tps": 435.42,
+        "generation_tps": 18.17,
+        "output_sha256": "c08782f2a0e583b1058d30d04e4805599ed0f1b3b4d61440456b2044370791d0"
+      }
+    ]
+  },
+  "power": {
+    "complete": true,
+    "screen_only": true,
+    "power_auto_restored": true,
+    "errors": [],
+    "all_outputs_identical": true,
+    "samples": [
+      {
+        "mode": "auto",
+        "prefill_tps": 435.75,
+        "generation_tps": 17.16,
+        "matches_control": true
+      },
+      {
+        "mode": "high",
+        "prefill_tps": 445.6,
+        "generation_tps": 17.49,
+        "matches_control": true
+      },
+      {
+        "mode": "fclk2000",
+        "prefill_tps": 444.39,
+        "generation_tps": 17.74,
+        "matches_control": true
+      },
+      {
+        "mode": "profile_peak",
+        "prefill_tps": 405.97,
+        "generation_tps": 16.63,
+        "matches_control": true
+      },
+      {
+        "mode": "auto",
+        "prefill_tps": 435.73,
+        "generation_tps": 17.47,
+        "matches_control": true
+      }
+    ]
+  },
+  "draft_work_audit": {
+    "historical_mellanox_output_sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "matches_qualified_usb4_output": true,
+    "historical_trace": [
+      "ds4-bench: spec calls 32: 1-tok x30 avg 58.3 ms 3-tok x1 avg 162.5 ms 6-tok x1 avg 218.1 ms",
+      "ds4-bench: spec calls 64: 1-tok x62 avg 56.7 ms 3-tok x1 avg 162.5 ms 6-tok x1 avg 218.1 ms",
+      "ds4-bench: spec calls 96: 1-tok x87 avg 57.1 ms 2-tok x1 avg 146.7 ms 3-tok x4 avg 166.5 ms 6-tok x4 avg 215.3 ms",
+      "ds4-bench: spec calls 128: 1-tok x119 avg 56.8 ms 2-tok x1 avg 146.7 ms 3-tok x4 avg 166.5 ms 6-tok x4 avg 215.3 ms",
+      "ds4-bench: spec calls 160: 1-tok x149 avg 57.5 ms 2-tok x2 avg 156.5 ms 3-tok x4 avg 166.5 ms 5-tok x1 avg 227.1 ms 6-tok x4 avg 215.3 ms",
+      "ds4-bench: spec calls 192: 1-tok x181 avg 57.3 ms 2-tok x2 avg 156.5 ms 3-tok x4 avg 166.5 ms 5-tok x1 avg 227.1 ms 6-tok x4 avg 215.3 ms"
+    ],
+    "same_unrestricted_control_can_vary": true,
+    "fast_control_matches_old_affinity_variant": true,
+    "affinity_decision": "No current-stack benefit; restricted repeats match slow control. Do not attribute old fast output branch to CPU affinity."
+  }
+}

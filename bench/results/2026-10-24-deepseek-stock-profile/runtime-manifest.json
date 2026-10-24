@@ -1,0 +1,35 @@
+{
+  "image_id": "55d3551404f5129dba6cf91671ff2f085bf6079b40e49e0ae255cb958f236ab2",
+  "tag": "localhost/deepseek1017-ds4:usb4-cq8",
+  "base_image_id": "df68ad19223d5413fc1dc00cd9cd7fc4512f8e87f1126a560992997eee87404a",
+  "timestamp": 1792866523,
+  "only_environment_changed": true,
+  "cq_yield": 8,
+  "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+  "driver_sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+  "driver_srcversion": "BAF45670669940EC5C9C0CA",
+  "driver_unchanged": true,
+  "provider_unchanged": true,
+  "hsa_unchanged": true,
+  "requested_stock_fclk_mhz": 2000,
+  "stock_index": 7,
+  "mode": "manual",
+  "default_cq_yield": 8,
+  "prior_cq_yield": 64,
+  "rootfs_layer_proof": [
+    {
+      "host": 1,
+      "rootfs_layers_identical": true,
+      "only_environment_change": "DS4_TP_ROCE_CQ_YIELD: 64 -> 8",
+      "filesystem_layer_count": 16
+    },
+    {
+      "host": 2,
+      "rootfs_layers_identical": true,
+      "only_environment_change": "DS4_TP_ROCE_CQ_YIELD: 64 -> 8",
+      "filesystem_layer_count": 16
+    }
+  ],
+  "quality_mode_flag": false,
+  "quality_settings_unchanged": true
+}

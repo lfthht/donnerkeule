@@ -63,6 +63,16 @@ kernel extension preserves the 64 KiB direct-host threshold; it is selected on
 both hosts with `dmabuf_host_credits=1`. A fresh Gufo regression check passed.
 The old Mellanox generation reference remains about 4% faster.
 
+A further [polling and stock-clock profile](../bench/results/2026-10-24-deepseek-stock-profile/README.md)
+measured **17.50 → 17.79 generation tok/s (+1.66%)** and **436.62 → 444.25
+prefill tok/s (+1.75%)** in six full requests, with identical output and available
+speculative-work checkpoint counts. The runtime now selects CQ interval 8;
+a reversible stock FCLK service is enabled on both hosts. The driver, model
+precision and all computation binaries are unchanged. Paired 11-case accuracy
+checks and a Gufo regression check pass. Generation remains about 2.6% below
+the historical Mellanox reference. The service holds manual policy while active;
+stopping it restores automatic GPU power.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain

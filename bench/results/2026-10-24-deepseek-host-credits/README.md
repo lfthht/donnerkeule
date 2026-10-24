@@ -167,3 +167,7 @@ retains the rejected affinity, IRQ-placement and aggressive-drafting policies.
 
 Raw logs, commands and recovery journals remain local. Credentials, private
 recovery paths, model files and container/module binaries are not distributed.
+
+A later [polling/stock-clock profile](../2026-10-24-deepseek-stock-profile/README.md)
+was separately qualified and selected. It retains this kernel and changes the
+runtime CQ default and stock GPU power policy.

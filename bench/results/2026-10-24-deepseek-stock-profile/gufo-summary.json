@@ -1,0 +1,10 @@
+{
+  "control": {
+    "prefill_tps": 2071.135096326507,
+    "generation_tps": 59.15103069076077
+  },
+  "candidate": {
+    "prefill_tps": 2069.232379277113,
+    "generation_tps": 59.568891961513216
+  }
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "run": 0,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 62.6 ms 6-tok x1 avg 219.9 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 59.6 ms 6-tok x1 avg 219.9 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 60.7 ms 3-tok x1 avg 156.3 ms 6-tok x2 avg 219.1 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 59.7 ms 3-tok x1 avg 156.3 ms 6-tok x2 avg 219.1 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 59.5 ms 3-tok x1 avg 156.3 ms 6-tok x3 avg 218.6 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 59.2 ms 3-tok x1 avg 156.3 ms 6-tok x3 avg 218.6 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 59.2 ms 3-tok x1 avg 156.3 ms 5-tok x1 avg 224.4 ms 6-tok x3 avg 218.6 ms"
+    ]
+  },
+  {
+    "run": 1,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 62.5 ms 6-tok x1 avg 211.2 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 59.1 ms 6-tok x1 avg 211.2 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 60.2 ms 3-tok x1 avg 149.3 ms 6-tok x2 avg 209.1 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 59.2 ms 3-tok x1 avg 149.3 ms 6-tok x2 avg 209.1 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 59.0 ms 3-tok x1 avg 149.3 ms 6-tok x3 avg 208.9 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 58.6 ms 3-tok x1 avg 149.3 ms 6-tok x3 avg 208.9 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 58.6 ms 3-tok x1 avg 149.3 ms 5-tok x1 avg 214.0 ms 6-tok x3 avg 208.9 ms"
+    ]
+  },
+  {
+    "run": 2,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 61.5 ms 6-tok x1 avg 209.7 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 58.4 ms 6-tok x1 avg 209.7 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 59.7 ms 3-tok x1 avg 148.6 ms 6-tok x2 avg 208.5 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 58.7 ms 3-tok x1 avg 148.6 ms 6-tok x2 avg 208.5 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 58.5 ms 3-tok x1 avg 148.6 ms 6-tok x3 avg 208.7 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 58.2 ms 3-tok x1 avg 148.6 ms 6-tok x3 avg 208.7 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 58.2 ms 3-tok x1 avg 148.6 ms 5-tok x1 avg 207.9 ms 6-tok x3 avg 208.7 ms"
+    ]
+  },
+  {
+    "run": 3,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 63.7 ms 6-tok x1 avg 223.7 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 60.0 ms 6-tok x1 avg 223.7 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 60.7 ms 3-tok x1 avg 153.6 ms 6-tok x2 avg 221.2 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 59.6 ms 3-tok x1 avg 153.6 ms 6-tok x2 avg 221.2 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 59.4 ms 3-tok x1 avg 153.6 ms 6-tok x3 avg 219.9 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 59.0 ms 3-tok x1 avg 153.6 ms 6-tok x3 avg 219.9 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 58.9 ms 3-tok x1 avg 153.6 ms 5-tok x1 avg 215.0 ms 6-tok x3 avg 219.9 ms"
+    ]
+  },
+  {
+    "run": 4,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 62.8 ms 6-tok x1 avg 220.2 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 59.4 ms 6-tok x1 avg 220.2 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 60.5 ms 3-tok x1 avg 156.9 ms 6-tok x2 avg 219.5 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 59.6 ms 3-tok x1 avg 156.9 ms 6-tok x2 avg 219.5 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 59.4 ms 3-tok x1 avg 156.9 ms 6-tok x3 avg 219.4 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 59.0 ms 3-tok x1 avg 156.9 ms 6-tok x3 avg 219.4 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 59.1 ms 3-tok x1 avg 156.9 ms 5-tok x1 avg 223.5 ms 6-tok x3 avg 219.4 ms"
+    ]
+  },
+  {
+    "run": 5,
+    "sha256": "674754a8c7c6d8483f492302becda923d3bb1f279e31dfd9bdc0faff429787f6",
+    "trace": [
+      "ds4-bench: spec calls 32: 1-tok x31 avg 61.5 ms 6-tok x1 avg 210.5 ms",
+      "ds4-bench: spec calls 64: 1-tok x63 avg 58.2 ms 6-tok x1 avg 210.5 ms",
+      "ds4-bench: spec calls 96: 1-tok x93 avg 59.3 ms 3-tok x1 avg 147.9 ms 6-tok x2 avg 209.1 ms",
+      "ds4-bench: spec calls 128: 1-tok x125 avg 58.5 ms 3-tok x1 avg 147.9 ms 6-tok x2 avg 209.1 ms",
+      "ds4-bench: spec calls 160: 1-tok x156 avg 58.5 ms 3-tok x1 avg 147.9 ms 6-tok x3 avg 208.9 ms",
+      "ds4-bench: spec calls 192: 1-tok x188 avg 58.2 ms 3-tok x1 avg 147.9 ms 6-tok x3 avg 208.9 ms",
+      "ds4-bench: spec calls 224: 1-tok x219 avg 58.3 ms 3-tok x1 avg 147.9 ms 5-tok x1 avg 215.5 ms 6-tok x3 avg 208.9 ms"
+    ]
+  }
+]

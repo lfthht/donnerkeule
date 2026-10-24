@@ -1,0 +1,4 @@
+ARG DS4_BASE_IMAGE
+FROM ${DS4_BASE_IMAGE}
+ENV DS4_TP_ROCE_CQ_YIELD=8
+LABEL io.deepseek.optimization="cooperative-cq8"
