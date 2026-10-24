@@ -43,6 +43,7 @@ struct tbv_mr {
     struct tbv_host_dma_map host_dma[4];
 };
 static bool dmabuf_host_direct = true;
+static unsigned int dmabuf_host_direct_min_bytes = SZ_64K;
 static int host_dma_maps, host_dma_active;
 static int sg_live, index_live, dma_live, alloc_error, map_error, index_error;
 static int mapped_shape; /* 0: coalesced; 1: split/noncontiguous; 2..5 malformed. */
@@ -112,6 +113,20 @@ static void clean(void)
 int main(void)
 {
     struct tbv_mr mr = mr_new();
+    assert(!tbv_host_dma_eligible(&mr, 0, 5 * PAGE_SIZE));
+    dmabuf_host_direct_min_bytes = PAGE_SIZE;
+    assert(tbv_host_dma_eligible(&mr, 0, PAGE_SIZE));
+    assert(tbv_host_dma_eligible(&mr, PAGE_SIZE, 5 * PAGE_SIZE));
+    assert(!tbv_host_dma_eligible(&mr, 0, 0));
+    assert(!tbv_host_dma_eligible(&mr, 0, PAGE_SIZE - 1));
+    assert(!tbv_host_dma_eligible(&mr, 1, PAGE_SIZE));
+    assert(!tbv_host_dma_eligible(&mr, 31 * PAGE_SIZE, 2 * PAGE_SIZE));
+    const unsigned bad_thresholds[] = {0, PAGE_SIZE - 1, PAGE_SIZE + 1, SZ_64K + PAGE_SIZE};
+    for (unsigned i = 0; i < ARRAY_SIZE(bad_thresholds); ++i) {
+        dmabuf_host_direct_min_bytes = bad_thresholds[i];
+        assert(!tbv_host_dma_eligible(&mr, 0, SZ_64K));
+    }
+    dmabuf_host_direct_min_bytes = SZ_64K;
     assert(tbv_host_dma_eligible(&mr, 0, SZ_64K));
     assert(tbv_host_dma_eligible(&mr, SZ_64K, SZ_64K));
     assert(!tbv_host_dma_eligible(NULL, 0, SZ_64K));

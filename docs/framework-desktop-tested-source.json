@@ -1,7 +1,7 @@
 {
   "base_revision": "e4039b6778aee5625c0dddf13e3c6477ff9597ce",
   "kernel": "7.2.6-070206-generic",
-  "module_sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+  "module_sha256": "2a3d4bea358ba71ae90615111ff50cb4e2927ca9a99f456f0ae41dca3047357d",
   "patches": [
     {
       "name": "e4039b6-dmabuf-progress.patch",
@@ -32,7 +32,7 @@
       "sha256": "e3bc0a07905496eceab1827714bf5628b3a12aa170569215c71e01bc70a8bf73"
     }
   ],
-  "module_srcversion": "BAF45670669940EC5C9C0CA",
+  "module_srcversion": "6034C2FBE3EF9C733BA8B4C",
   "source_sha256": {
     "kernel/apple.c": "87e3c89b4af57de12b5f78a332f646eae28981ff90da32cb063585da0ac6610e",
     "kernel/backend.c": "93b521000200c14d7707f8124f92db8e170cb285035a8b2c29ee58bdac606633",
@@ -67,7 +67,7 @@
     "kernel/verbs_dmabuf.c": "f16fb64f3a8f962d321d5fe6745d43192d6dd2ca6dc752fa78c07cfa45a455a3",
     "kernel/verbs_dmabuf.h": "1eb8ad45b7a4dd729f37cbe81b767bb73f5ffef98e80e8853093530b49a5e5d9",
     "kernel/verbs_internal.h": "e865931242b11961edd4f5e0e0cc2b5338a7b6b39af694b16b056340f7229ea1",
-    "kernel/verbs_mr.c": "8baa730f98aa359886c6837f7a7d59f9ff53b1c9caeba253d510f4bc8e3db755",
+    "kernel/verbs_mr.c": "ba45547cf640f9ea1af3ba0e0652b2b5e4e1442bb322d9e3611c770ab8858c77",
     "proto/apple_tx.h": "6ef6215610ed9d0a43533c80b5ff953a6b730d0d214c03893033775354d8ebf7",
     "proto/config.c": "b30c79fc622e379727777edf111f178ebfcb478d53f2a7500b43cd7b5051b853",
     "proto/config.h": "7a6b4336cdb286fdf9671c625bbdb6ea73e46e9e37d81658e6eaf2a84a70a1f8",
@@ -100,12 +100,15 @@
     "wire_changed": false
   },
   "host_direct": {
-    "minimum_wr_bytes": 65536,
+    "minimum_wr_bytes": 4096,
     "page_bytes": 4096,
     "max_mr_bytes": 268435456,
     "maps_per_mr": 4,
     "wire_changed": false,
-    "provider_changed": false
+    "provider_changed": false,
+    "default_minimum_wr_bytes": 65536,
+    "minimum_parameter": "dmabuf_host_direct_min_bytes",
+    "invalid_minimum_falls_back": true
   },
   "progress_owner": {
     "serialized_start_and_forward": true,
@@ -123,7 +126,7 @@
     "provider_changed": false
   },
   "provider_source_sha256": "0571ec84ec38841b5b4ffde533996572db7f24ad6ee576aa67c616cb97697c58",
-  "module_sha256_note": "October 24 opt-in aligned-host receive-credit update, TBV_PROFILING=0, same qualified kernel/provider. Prior capability-only and October 21 performance provenance are retained separately.",
+  "module_sha256_note": "October 24 opt-in page-aligned host threshold, TBV_PROFILING=0. Previous capability/host-credit binaries and historical measurements are retained separately.",
   "measured_parameters": {
     "arms": [
       "mellanox",
@@ -206,6 +209,24 @@
     "validation": "bench/results/2026-10-24-deepseek-host-credits/README.md"
   },
   "current_inference_profile": {
+    "date": "2026-10-24",
+    "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+    "cq_yield": 8,
+    "requested_stock_fclk_mhz": 2000,
+    "stock_fclk_index": 7,
+    "minimum_host_direct_bytes": 4096,
+    "gate_alignment": 4096,
+    "gpu_math_changed": false,
+    "comparison": "bench/results/2026-10-24-deepseek-small-gates/README.md",
+    "engine_and_kernel_source_unchanged": false
+  },
+  "october_24_host_credit_baseline": {
+    "module_sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+    "module_srcversion": "BAF45670669940EC5C9C0CA",
+    "verbs_mr_source_sha256": "8baa730f98aa359886c6837f7a7d59f9ff53b1c9caeba253d510f4bc8e3db755",
+    "minimum_host_direct_bytes": 65536
+  },
+  "october_24_stock_profile": {
     "date": "2026-10-24",
     "image_id": "55d3551404f5129dba6cf91671ff2f085bf6079b40e49e0ae255cb958f236ab2",
     "cq_yield": 8,

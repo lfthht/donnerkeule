@@ -1,0 +1,84 @@
+{
+  "temperature": 0,
+  "thinking": false,
+  "seed": 1017,
+  "max_tokens": 256,
+  "context_capacity": 16384,
+  "fixtures": [
+    {
+      "name": "text",
+      "prompt": "What is 17 multiplied by 19? Reply with only the integer.",
+      "expected": "323"
+    },
+    {
+      "name": "arithmetic",
+      "prompt": "What is (147 + 286) multiplied by 3? Reply with only the integer.",
+      "expected": "1299"
+    },
+    {
+      "name": "factorial",
+      "prompt": "What is 5 factorial? Reply with only the integer.",
+      "expected": "120"
+    },
+    {
+      "name": "logic",
+      "prompt": "Ada is older than Ben. Ben is older than Chen. Who is youngest? Reply with only the name.",
+      "expected": "Chen"
+    },
+    {
+      "name": "element",
+      "prompt": "Which chemical element has the symbol Fe? Reply with only the element name.",
+      "expected": "Iron"
+    },
+    {
+      "name": "capital",
+      "prompt": "What is the capital city of Japan? Reply with only the city name.",
+      "expected": "Tokyo"
+    },
+    {
+      "name": "translation",
+      "prompt": "Translate good morning into German. Reply with only the translation.",
+      "expected": "Guten Morgen"
+    },
+    {
+      "name": "json",
+      "prompt": "What is 6 multiplied by 7? Return a JSON object with the single key answer and its integer value.",
+      "expected_json": {
+        "answer": 42
+      }
+    },
+    {
+      "name": "code",
+      "prompt": "Python code: def f(n): return sum(range(1, n+1)). What is f(5)? Reply with only the integer.",
+      "expected": "15"
+    },
+    {
+      "name": "vision",
+      "image": {
+        "width": 128,
+        "height": 128,
+        "rgb": [
+          255,
+          0,
+          0
+        ]
+      },
+      "prompt": "What is the dominant color in this image? Reply with just one color word.",
+      "expected": "red"
+    },
+    {
+      "name": "long",
+      "prefix": "These are example engineering records. Read them, then answer the final arithmetic question.\n",
+      "records": 450,
+      "record_template": "Case %04d: Pump A moves 24 litres per minute. Its inlet pressure is 6 bar and its outlet pressure is 4 bar. Calibration is complete.",
+      "record_numbers": [
+        1,
+        450
+      ],
+      "join": "\n",
+      "suffix": "\n\nFinal question: What is 17 multiplied by 19? Reply with only the integer.",
+      "prompt_tokens": 15788,
+      "expected": "323"
+    }
+  ]
+}

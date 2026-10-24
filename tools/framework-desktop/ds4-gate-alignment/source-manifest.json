@@ -1,0 +1,23 @@
+{
+  "default_alignment": 65536,
+  "gpu_math_changed": false,
+  "files": {
+    "ds4_tp.c": {
+      "before_sha256": "439711fe6e0a46045e01b17ef47ae4ccffb3767f8fd370308a12b0927d133eb2",
+      "after_sha256": "439711fe6e0a46045e01b17ef47ae4ccffb3767f8fd370308a12b0927d133eb2"
+    },
+    "ds4_tp_roce.h": {
+      "before_sha256": "e6c40c4a495eb3f1905ba4668009ca321553161c87bbfaf74443d47c4fdb5189",
+      "after_sha256": "7baf15a94883387596809b3abd2c399e56b6327b1eec8df7d4225d25fe6166f1"
+    }
+  },
+  "feature": "Peer-negotiated page-aligned packed gate slots",
+  "environment": "DS4_TP_ROCE_GATE_ALIGN=4096",
+  "requires": [
+    "DS4_TP_ROCE_PACKED_GATES=1",
+    "DS4_TP_ROCE_LOGITS=1"
+  ],
+  "qualified_alignment": 4096,
+  "kernel_parameter": "dmabuf_host_direct_min_bytes=4096",
+  "default_enabled": false
+}

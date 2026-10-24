@@ -73,6 +73,15 @@ checks and a Gufo regression check pass. Generation remains about 2.6% below
 the historical Mellanox reference. The service holds manual policy while active;
 stopping it restores automatic GPU power.
 
+The subsequent [page-aligned gate comparison](../bench/results/2026-10-24-deepseek-small-gates/README.md)
+measured **17.63 → 18.10 generation tok/s (+2.67%)** with essentially unchanged
+prefill. Comparing only the shared output variant gives **17.705 → 18.10
+(+2.23%)**; the first control produced another text variant. Smaller packed-gate
+slots and the opt-in 4 KiB direct-host threshold are selected together. Float
+payloads, model precision and the complete GPU object are unchanged. Paired
+11-case accuracy checks and the Gufo regression pass. The candidate median is
+about **0.93% below** the historical single-run Mellanox result.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain
@@ -151,7 +160,9 @@ srcversion `57FE5E2439711FB49D9723A`; its provenance is retained under
 `october_21_measurement_baseline`. The October 24 capability correction has
 srcversion `BBDB140372B8EC1C925667B`, retained under
 `october_24_capability_baseline`. The later opt-in host receive-credit build has
-srcversion `BAF45670669940EC5C9C0CA`. Module binary hashes can differ because
+srcversion `BAF45670669940EC5C9C0CA`, retained under
+`october_24_host_credit_baseline`. The current opt-in 4 KiB threshold build has
+srcversion `6034C2FBE3EF9C733BA8B4C`. Module binary hashes can differ because
 build paths and profiling options differ. Build once for matching hosts and
 copy identical module bytes to both.
 
@@ -181,8 +192,10 @@ October 24 DeepSeek follow-up above used this corrected capability build.
 
 `dmabuf_host_credits=1` lets eligible direct host MRs use the existing receive
 ahead credit mechanism. The switch defaults off. Direct-host DMA must be enabled;
-the 64 KiB minimum, 4 KiB alignment, 256 MiB MR limit and QP/PD/access/lifetime
-checks remain in force. Staged host buffers are not pre-armed. The GPU credit
+the default 64 KiB minimum, 4 KiB alignment, 256 MiB MR limit and
+QP/PD/access/lifetime checks remain in force. The current paired gate profile
+selects `dmabuf_host_direct_min_bytes=4096`; invalid thresholds disable direct
+host eligibility and short/unaligned transfers retain staging. Staged host buffers are not pre-armed. The GPU credit
 path and wire protocol remain unchanged. The [qualified comparison](../bench/results/2026-10-24-deepseek-host-credits/README.md)
 records the module, runtime, actual reuse counters and rollback limits. This
 parameter is additional to the base profile below, and was enabled on both

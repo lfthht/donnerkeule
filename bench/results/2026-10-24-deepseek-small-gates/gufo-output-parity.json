@@ -1,0 +1,33 @@
+{
+  "all_outputs_identical": true,
+  "runs": [
+    {
+      "run": 0,
+      "candidate": false,
+      "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+      "proposed_draft_tokens": 226,
+      "accepted_draft_tokens": 150
+    },
+    {
+      "run": 1,
+      "candidate": true,
+      "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+      "proposed_draft_tokens": 226,
+      "accepted_draft_tokens": 150
+    },
+    {
+      "run": 2,
+      "candidate": true,
+      "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+      "proposed_draft_tokens": 226,
+      "accepted_draft_tokens": 150
+    },
+    {
+      "run": 3,
+      "candidate": false,
+      "sha256": "4902c044f4587fb3c1f19e23431d880272f141fc29f6cb2a8911be7365e7cc4d",
+      "proposed_draft_tokens": 226,
+      "accepted_draft_tokens": 150
+    }
+  ]
+}

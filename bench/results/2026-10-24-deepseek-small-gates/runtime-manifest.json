@@ -1,0 +1,39 @@
+{
+  "tag": "localhost/deepseek1017-ds4:usb4-gate4k",
+  "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf",
+  "timestamp": 1792869706,
+  "binaries_sha256": [
+    "bae3580debf613f4102566a4f288d994ebbab5d759ba94f968d869769b96cd02",
+    "5352a38d300b79578afee7ca7670849892298f5244394532aa3389a6f110ca6b",
+    "0f0b5cdaa93b1262a40f38a29f9f5748c6e8fee11285a534669d039038aea88a",
+    "94d34127d414f53918beafbdc2da391a384f44b3cc11aac59b5960b7995933bf",
+    "878e9232338b65b8c825b570b49d487d4824125ce4569f58e2966786928896f1"
+  ],
+  "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+  "original_hsa_and_provider": true,
+  "base_image_id": "55d3551404f5129dba6cf91671ff2f085bf6079b40e49e0ae255cb958f236ab2",
+  "gate_alignment": 4096,
+  "cq_yield": 8,
+  "host_records": [
+    {
+      "host": 1,
+      "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf"
+    },
+    {
+      "host": 2,
+      "image_id": "842787d6dc6e34f0cf6f76816aa901217643e76738dbbd8801fdc7c02fa28eaf"
+    }
+  ],
+  "module": {
+    "sha256": "2a3d4bea358ba71ae90615111ff50cb4e2927ca9a99f456f0ae41dca3047357d",
+    "srcversion": "6034C2FBE3EF9C733BA8B4C"
+  },
+  "host_direct_minimum": 4096,
+  "baseline_module": {
+    "sha256": "4b42271eedab95ba196dd6b668673c1e4e3021eb46ad641340c87731f898233f",
+    "srcversion": "BAF45670669940EC5C9C0CA"
+  },
+  "gpu_math_changed": false,
+  "hsa_sha256": "69cfd3277b627dec1641166600764d2ee4c34bdfc8519e6ffe58a7e0d51bfbc0",
+  "provider_sha256": "2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0"
+}

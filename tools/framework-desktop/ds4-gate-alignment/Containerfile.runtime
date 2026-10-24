@@ -1,0 +1,4 @@
+FROM 55d3551404f5129dba6cf91671ff2f085bf6079b40e49e0ae255cb958f236ab2
+COPY --chown=0:0 --chmod=0755 ds4 ds4-server ds4-bench ds4-eval ds4-agent /usr/local/bin/
+ENV DS4_TP_ROCE_GATE_ALIGN=4096
+LABEL io.deepseek.usb4.change="4KiB transport alignment; numerical kernels unchanged"
