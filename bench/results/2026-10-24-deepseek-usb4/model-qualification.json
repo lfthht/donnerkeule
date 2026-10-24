@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "both_cables_used": true,
+  "fixtures": [
+    {
+      "fixture": "text",
+      "text": "323",
+      "elapsed_seconds": 2.3658703099990817,
+      "usage": {
+        "prompt_tokens": 19,
+        "completion_tokens": 1,
+        "total_tokens": 20,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 19
+        }
+      },
+      "transport_proof_passed": true
+    },
+    {
+      "fixture": "vision",
+      "text": "red",
+      "elapsed_seconds": 3.9784134649999032,
+      "usage": {
+        "prompt_tokens": 204,
+        "completion_tokens": 1,
+        "total_tokens": 205,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 204
+        }
+      },
+      "transport_proof_passed": true
+    },
+    {
+      "fixture": "long",
+      "text": "323",
+      "elapsed_seconds": 15.734424188000048,
+      "usage": {
+        "prompt_tokens": 4238,
+        "completion_tokens": 1,
+        "total_tokens": 4239,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 4238
+        }
+      },
+      "transport_proof_passed": true
+    }
+  ]
+}

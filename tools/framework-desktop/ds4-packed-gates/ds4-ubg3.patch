@@ -1,0 +1,181 @@
+--- a/ds4_tp.c
++++ b/ds4_tp.c
+@@ -2318,9 +2318,16 @@
+         errno = EINVAL;
+         goto fail;
+     }
+-    if (tp->rdma_active && !tp_roce_prepare(tp, bytes)) goto fail;
++
+     ds4_tp_linux_gate_header h = {DS4_TP_MAGIC, kind, layer, gate,
+                                   tp->epoch, seq, bytes}, peer;
++#ifdef DS4_TP_HAVE_ROCE
++    if (tp->rdma_active && tp->roce->packed_gates && bytes <= 65536u-sizeof(h)) {
++        if (!tp_roce_packed_gate(tp, &h, sizeof(h), out, in, bytes, grace_ms)) goto fail;
++        return 1;
++    }
++#endif
++    if (tp->rdma_active && !tp_roce_prepare(tp, bytes)) goto fail;
+     if (!ds4_tp_io_exchange(tp->data_fd, &h, &peer, sizeof(h),
+                            tp->gate_timeout_ms + grace_ms, &tp->failed)) goto fail;
+     if (memcmp(&h, &peer, sizeof(h))) { errno = EPROTO; goto fail; }
+--- a/ds4_tp_roce.h
++++ b/ds4_tp_roce.h
+@@ -35,6 +35,7 @@
+     uint64_t window_id;
+     uint32_t lengths[TP_RC_WINDOW];
+     unsigned posted;
++    bool packed_gates, prearmed;
+ };
+ static void tp_roce_close(ds4_tp *tp) {
+     struct ds4_tp_roce *r = tp->roce;
+@@ -92,6 +93,11 @@
+     if(r->query_gid(r->ctx,(uint8_t)portnum,tp->opt.rdma_gid_index,&r->gid)) goto syserr;
+     union ibv_gid zero={0};
+     if(!memcmp(&r->gid,&zero,sizeof(zero))) { tp_set_err(err,errlen,"RoCE: selected GID is zero"); goto fail; }
++    const char *packed=getenv("DS4_TP_ROCE_PACKED_GATES");
++    if(packed && strcmp(packed,"0") && strcmp(packed,"1")) {
++        tp_set_err(err,errlen,"DS4_TP_ROCE_PACKED_GATES must be 0 or 1");goto fail;
++    }
++    r->packed_gates=packed && !strcmp(packed,"1");
+     r->mtu=port.active_mtu;
+     r->pd=r->alloc_pd(r->ctx); if(!r->pd) goto syserr;
+     r->cq=r->create_cq(r->ctx,2*TP_RC_WINDOW,NULL,NULL,0); if(!r->cq) goto syserr;
+@@ -114,13 +120,17 @@
+ fail:
+     tp_roce_close(tp); return 0;
+ }
++static int tp_roce_prearm(ds4_tp *tp);
+ static int tp_roce_connect(ds4_tp *tp,char *err,size_t errlen) {
+     struct ds4_tp_roce *r=tp->roce;
+     struct { uint64_t epoch; uint32_t qpn,psn,mtu; uint8_t gid[16]; uint32_t reserved; } mine={0},peer={0};
+     mine.epoch=tp->epoch;mine.qpn=r->qp->qp_num;mine.psn=r->psn;mine.mtu=r->mtu;memcpy(mine.gid,&r->gid,16);
++    /* A stock or differently configured peer must fail before any gate DMA.
++     * This opt-in protocol retains TCP bootstrap and large-window barriers. */
++    mine.reserved=r->packed_gates?0x55424733u:0u;
+     if(!ds4_tp_io_exchange(tp->data_fd,&mine,&peer,sizeof(mine),tp->gate_timeout_ms,&tp->failed)) goto fail;
+     if(peer.epoch!=mine.epoch || !peer.qpn || peer.qpn>0xffffffu || peer.psn>0xffffffu ||
+-       peer.mtu<IBV_MTU_256 || peer.mtu>IBV_MTU_4096 || peer.reserved) { errno=EPROTO; goto fail; }
++       peer.mtu<IBV_MTU_256 || peer.mtu>IBV_MTU_4096 || peer.reserved!=mine.reserved) { errno=EPROTO; goto fail; }
+     const uint8_t port=tp->opt.rdma_port?tp->opt.rdma_port:1;
+     struct ibv_qp_attr a={0};
+     a.qp_state=IBV_QPS_RTR;a.path_mtu=peer.mtu<(uint32_t)r->mtu?(enum ibv_mtu)peer.mtu:r->mtu;
+@@ -137,6 +147,14 @@
+     memset(&a,0,sizeof(a));a.qp_state=IBV_QPS_RTS;a.sq_psn=r->psn;a.timeout=14;a.retry_cnt=3;a.rnr_retry=3;a.max_rd_atomic=1;
+     if(r->modify_qp(r->qp,&a,IBV_QP_STATE|IBV_QP_SQ_PSN|IBV_QP_TIMEOUT|IBV_QP_RETRY_CNT|IBV_QP_RNR_RETRY|IBV_QP_MAX_QP_RD_ATOMIC)) goto fail;
+     fprintf(stderr,"ds4-tp: RoCE RC device=%s port=%u gid-index=%d window=%u chunk=%u host-staging=%uMiB\n",tp->opt.rdma_device,port,tp->opt.rdma_gid_index,TP_RC_WINDOW,TP_RC_CHUNK,2*TP_RC_WINDOW*TP_RC_CHUNK/(1024*1024));
++    if(r->packed_gates) {
++        if(!tp_roce_prearm(tp)) goto fail;
++        uint64_t ready[2]={tp->epoch,r->window_id},remote[2];
++        if(!ds4_tp_io_exchange(tp->data_fd,ready,remote,sizeof(ready),
++                              tp->gate_timeout_ms,&tp->failed) ||
++           memcmp(ready,remote,sizeof(ready))) { errno=EPROTO;goto fail; }
++    }
++    fprintf(stderr,"ds4-tp: packed RDMA gates=%u (protocol UBG3, max 64KiB)\n",r->packed_gates);
+     return 1;
+ fail:
+     tp_set_err(err,errlen,"RoCE connect: %s",strerror(errno));return 0;
+@@ -145,16 +163,34 @@
+  * both ranks have posted their first bounded receive window. */
+ static int tp_roce_prepare(ds4_tp *tp,uint64_t bytes) {
+     struct ds4_tp_roce *r=tp->roce;
+-    if(r->posted || !bytes || r->window_id>=UINT64_MAX/16u) { errno=EINVAL; return 0; }
+-    ++r->window_id;
++    bool armed=r->prearmed;
++    if((r->posted && (!armed || r->posted!=1)) || !bytes ||
++       r->window_id>=UINT64_MAX/16u) { errno=EINVAL; return 0; }
++    if(!armed) ++r->window_id;
++    r->prearmed=false;
+     for(unsigned i=0;i<TP_RC_WINDOW && bytes;i++) {
+         uint32_t n=bytes>TP_RC_CHUNK?TP_RC_CHUNK:(uint32_t)bytes;
+         r->lengths[i]=n;
+-        struct ibv_sge sg={.addr=(uintptr_t)(r->rx+i*TP_RC_CHUNK),.length=n,.lkey=r->rx_mr->lkey};
+-        struct ibv_recv_wr wr={.wr_id=r->window_id*16u+i,.sg_list=&sg,.num_sge=1},*bad=NULL;
+-        if(ibv_post_recv(r->qp,&wr,&bad)) return 0;
+-        r->posted++;bytes-=n;
+-    }
++        if(!(armed && i==0)) {
++            struct ibv_sge sg={.addr=(uintptr_t)(r->rx+i*TP_RC_CHUNK),
++                .length=r->packed_gates?TP_RC_CHUNK:n,.lkey=r->rx_mr->lkey};
++            struct ibv_recv_wr wr={.wr_id=r->window_id*16u+i,.sg_list=&sg,.num_sge=1},*bad=NULL;
++            if(ibv_post_recv(r->qp,&wr,&bad)) return 0;
++            r->posted++;
++        }
++        bytes-=n;
++    }
++    return 1;
++}
++/* Keep one full-capacity receive ahead across gate boundaries. The next
++ * gate adopts its WR ID and checks its actual byte count. Post only after
++ * the preceding receive has been copied out; its DMA buffer can then be
++ * reused safely. Large windows add their remaining bounded receives. */
++static int tp_roce_prearm(ds4_tp *tp) {
++    struct ds4_tp_roce *r=tp->roce;
++    if(!r->packed_gates) return 1;
++    if(!tp_roce_prepare(tp,TP_RC_CHUNK)) return 0;
++    r->prearmed=true;
+     return 1;
+ }
+ static int tp_roce_exchange(ds4_tp *tp,const void *out,void *in,uint64_t bytes) {
+@@ -202,13 +238,60 @@
+             if(remaining<1 || !ds4_tp_io_exchange(tp->data_fd,mine,peer,sizeof(mine),(uint64_t)remaining,&tp->failed) || memcmp(mine,peer,sizeof(mine))) return 0;
+         }
+     }
+-    return 1;
+-}
++    return tp_roce_prearm(tp);
++}
++
++/* A small gate travels as one RC message with its complete validated header.
++ * RC SEND/RECV provides receive readiness, bounded retries and FIFO ordering;
++ * a separate LAN round trip is unnecessary. No output reaches the model
++ * until exact completions and every header field have been validated. */
++static int tp_roce_packed_gate(ds4_tp *tp,const void *header,size_t header_bytes,
++                               const void *out,void *in,uint64_t bytes,
++                               uint64_t grace_ms) {
++    struct ds4_tp_roce *r=tp->roce;
++    if(ds4_tp_failed(tp)) { errno=ECANCELED;return 0; }
++    if(!header || !header_bytes || header_bytes>4096 || !out || !in ||
++       !bytes || bytes>65536u-header_bytes || (r->posted && !r->prearmed)) { errno=EINVAL;return 0; }
++    /* A fixed aligned slot uses the already qualified >=64KiB direct-host
++     * DMA path and never exposes raw sub-page NHI tails or copied staging. */
++    const uint32_t wire_bytes=65536u;
++    const double deadline=tp_now_sec()+((double)tp->gate_timeout_ms+(double)grace_ms)/1000.0;
++    memcpy(r->tx,header,header_bytes);
++    memcpy(r->tx+header_bytes,out,(size_t)bytes);
++    memset(r->tx+header_bytes+bytes,0,wire_bytes-header_bytes-(size_t)bytes);
++    if(!tp_roce_prepare(tp,wire_bytes)) return 0;
++    struct ibv_sge sg={.addr=(uintptr_t)r->tx,.length=wire_bytes,.lkey=r->tx_mr->lkey};
++    struct ibv_send_wr wr={.wr_id=r->window_id*16u+8u,.sg_list=&sg,.num_sge=1,
++                          .opcode=IBV_WR_SEND,.send_flags=IBV_SEND_SIGNALED},*bad=NULL;
++    if(ibv_post_send(r->qp,&wr,&bad)) return 0;
++    unsigned sent=0,received=0;
++    while(!sent || !received) {
++        if(ds4_tp_failed(tp)) { errno=ECANCELED;return 0; }
++        if(tp_now_sec()>deadline) { errno=ETIMEDOUT;return 0; }
++        struct ibv_wc wc[2];int n=ibv_poll_cq(r->cq,2,wc);
++        if(n<0) return 0;
++        for(int i=0;i<n;i++) {
++            if(wc[i].status!=IBV_WC_SUCCESS) { errno=EIO;return 0; }
++            if(wc[i].wr_id==r->window_id*16u && wc[i].opcode==IBV_WC_RECV &&
++               wc[i].byte_len==wire_bytes && !received) received=1;
++            else if(wc[i].wr_id==r->window_id*16u+8u &&
++                    wc[i].opcode==IBV_WC_SEND && !sent) sent=1;
++            else { errno=EPROTO;return 0; }
++        }
++    }
++    atomic_thread_fence(memory_order_acquire);
++    if(memcmp(header,r->rx,header_bytes)) { errno=EPROTO;return 0; }
++    memcpy(in,r->rx+header_bytes,(size_t)bytes);
++    r->posted=0;
++    return tp_roce_prearm(tp);
++}
++
+ #else
+ static void tp_roce_close(ds4_tp *tp) { (void)tp; }
+ static int tp_roce_probe(ds4_tp *tp,char *err,size_t errlen) {
+     (void)tp;tp_set_err(err,errlen,"RoCE unavailable: rebuild with libibverbs development headers");return 0;
+ }
++static int tp_roce_prearm(ds4_tp *tp);
+ static int tp_roce_connect(ds4_tp *tp,char *err,size_t errlen) { (void)tp;(void)err;(void)errlen;return 0; }
+ static int tp_roce_prepare(ds4_tp *tp,uint64_t bytes) { (void)tp;(void)bytes;return 0; }
+ static int tp_roce_exchange(ds4_tp *tp,const void *out,void *in,uint64_t bytes) { (void)tp;(void)out;(void)in;(void)bytes;return 0; }

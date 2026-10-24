@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "requests": 6,
+  "quality": false,
+  "prompt_tokens": 16127,
+  "output_tokens": 256,
+  "kernel": "original selected driver",
+  "control_median": {
+    "prefill_tps": 429.2,
+    "generation_tps": 9.02
+  },
+  "candidate_median": {
+    "prefill_tps": 430.57,
+    "generation_tps": 9.61
+  },
+  "both_cables": true,
+  "duration_seconds": 596.4944713115692,
+  "generation_gain_percent": 6.541019955654104,
+  "historical_mellanox": {
+    "prefill_tps": 420.98,
+    "generation_tps": 18.27,
+    "requests": 1,
+    "matched_new_ab": false
+  },
+  "output_parity": {
+    "all_six_output_sha256_equal": true,
+    "outputs_sha256": [
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8",
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8",
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8",
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8",
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8",
+      "fc5c31afceefc4c4fba835c87cac5345c0c5ca9e5fc1da6ac9559376b18ad2f8"
+    ],
+    "all_speculative_work_distributions_equal": true,
+    "counts": [
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ],
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ],
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ],
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ],
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ],
+      [
+        [
+          "32",
+          "1-tok x31 6-tok x1"
+        ],
+        [
+          "64",
+          "1-tok x63 6-tok x1"
+        ],
+        [
+          "96",
+          "1-tok x93 3-tok x1 6-tok x2"
+        ],
+        [
+          "128",
+          "1-tok x125 3-tok x1 6-tok x2"
+        ],
+        [
+          "160",
+          "1-tok x156 3-tok x1 6-tok x3"
+        ],
+        [
+          "192",
+          "1-tok x188 3-tok x1 6-tok x3"
+        ],
+        [
+          "224",
+          "1-tok x219 3-tok x1 5-tok x1 6-tok x3"
+        ]
+      ]
+    ]
+  },
+  "final_image": {
+    "tag": "localhost/deepseek1017-ds4:usb4-ubg3",
+    "image_id": "62e47b080968ca9dbcc61426bb982a7a88d2258484bac6780b011317553bbb34",
+    "timestamp": 1792845328,
+    "binary_sha256": "2225fb64d21354ca357abc326403b7d38c8905c195940244b9ad9c463cd4d8cc  /usr/local/bin/ds4\nbeb563fdb67d8b8d2b004afc787246b08d9c8a275bba1fc210e00d6c829b8920  /usr/local/bin/ds4-server\n73d60fbf6a867bfe11792c195fb88c039cd3dea947b7b000ca16f1cfc97ddd60  /usr/local/bin/ds4-bench\n2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0  /usr/lib64/libibverbs/libusb4_rdma-rdmav59.so\n",
+    "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+    "gpu_object_identical_to_qualified_base": true,
+    "source": "UBG3 optional transport patch",
+    "saved_profile_changed": false
+  },
+  "model": {
+    "main": "DeepSeek-V4.1-Flash-1017-Q2.gguf",
+    "dspark": "DeepSeek-V4.1-Flash-1017-DSpark-MXFP4.gguf",
+    "native_context_allocation": 16384,
+    "quality_flag": false,
+    "tile4": 1,
+    "down_rgroup": 4,
+    "bounded_swa_replay": false
+  },
+  "kernel_selected_srcversion": "BBDB140372B8EC1C925667B"
+}

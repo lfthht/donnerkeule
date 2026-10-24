@@ -1,0 +1,15 @@
+{
+  "protocol": "UBG3",
+  "opt_in": "DS4_TP_ROCE_PACKED_GATES=1 on both Linux RC ranks",
+  "model_math_changed": false,
+  "files": {
+    "ds4_tp.c": {
+      "before_sha256": "a371bf231cf495783ddd8e7c831a26a30d8221e1d7a17f2614682b39519cde28",
+      "after_sha256": "ee85178df410ff48601988ef36a30160f285bb0dcc8d1bfbc2d492524261c850"
+    },
+    "ds4_tp_roce.h": {
+      "before_sha256": "3cb5512566f983c5bdacb644d4c5d4fc47013a5c47ddf83a41eb26b7cddc9ae6",
+      "after_sha256": "c8ba2cf4f71a186caf6dbb60214da7a109714a9d7b905f2073ed4dd3705a38f9"
+    }
+  }
+}

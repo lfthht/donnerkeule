@@ -29,6 +29,12 @@ contains five paired repetitions at 16K, 32K, 64K and 128K input depths, with 25
 output tokens. Gufo used GPU DMA-BUF windows on both ranks. The host-memory
 preflight rates describe a different workload from GPU inference.
 
+The [October 24 DeepSeek follow-up](../bench/results/2026-10-24-deepseek-usb4/README.md)
+ruled out an accidentally enabled quality mode. An optional engine-only control
+transport improved median generation by 6.54% in six matched requests, with
+identical outputs, while leaving the selected kernel driver unchanged. The
+historical Mellanox generation gap remains unresolved.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain
@@ -128,8 +134,8 @@ All four rails became active on each host, with no new QP1/open-port messages.
 Host/GPU SEND and WRITE payloads, guards and two-round MR/QP recreation passed
 in both directions. Short bandwidth results and their limits are recorded in
 [the capability-fix validation](../bench/results/2026-10-24-port-capabilities/validation.json).
-The earlier inference measurements remain the October 21 baseline; inference
-performance was not remeasured for this capability correction.
+The October 21 Gufo measurements retain their original provenance. The later
+October 24 DeepSeek follow-up above used this corrected capability build.
 
 ### Userspace provider
 

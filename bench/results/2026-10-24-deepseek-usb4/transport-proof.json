@@ -1,0 +1,464 @@
+[
+  {
+    "order": 1,
+    "packed_gates": false,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 960550,
+            "rx": 960550
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 941970,
+            "rx": 941970
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 942300,
+            "rx": 942300
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 941720,
+            "rx": 941720
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3692930,
+        "host_direct_rx_frames": 3692930
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 960550,
+            "rx": 960550
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 941970,
+            "rx": 941970
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 942300,
+            "rx": 942300
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 941720,
+            "rx": 941720
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3692930,
+        "host_direct_rx_frames": 3692930
+      }
+    ]
+  },
+  {
+    "order": 2,
+    "packed_gates": true,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1015034,
+            "rx": 1015034
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1014696,
+            "rx": 1014696
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1015026,
+            "rx": 1015026
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1014606,
+            "rx": 1014606
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4059362,
+        "host_direct_rx_frames": 4059362
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1014906,
+            "rx": 1015002
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1014568,
+            "rx": 1014664
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1014898,
+            "rx": 1014995
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1014478,
+            "rx": 1014575
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4058850,
+        "host_direct_rx_frames": 4058850
+      }
+    ]
+  },
+  {
+    "order": 3,
+    "packed_gates": true,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1007274,
+            "rx": 1007274
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1006936,
+            "rx": 1006936
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1007266,
+            "rx": 1007266
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1006846,
+            "rx": 1006846
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4028322,
+        "host_direct_rx_frames": 4028322
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1007274,
+            "rx": 1007274
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1006936,
+            "rx": 1006936
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1007266,
+            "rx": 1007266
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1006846,
+            "rx": 1006846
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4028322,
+        "host_direct_rx_frames": 4028322
+      }
+    ]
+  },
+  {
+    "order": 4,
+    "packed_gates": false,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 957990,
+            "rx": 957990
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 939410,
+            "rx": 939410
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 939740,
+            "rx": 939740
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 939160,
+            "rx": 939160
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3682690,
+        "host_direct_rx_frames": 3682690
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 957990,
+            "rx": 957990
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 939410,
+            "rx": 939410
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 939740,
+            "rx": 939740
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 939160,
+            "rx": 939160
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3682690,
+        "host_direct_rx_frames": 3682690
+      }
+    ]
+  },
+  {
+    "order": 5,
+    "packed_gates": false,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 968230,
+            "rx": 968230
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 949650,
+            "rx": 949650
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949980,
+            "rx": 949980
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 949400,
+            "rx": 949400
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3723650,
+        "host_direct_rx_frames": 3723650
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 968230,
+            "rx": 968230
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 949650,
+            "rx": 949650
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 949980,
+            "rx": 949980
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 949400,
+            "rx": 949400
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 3723650,
+        "host_direct_rx_frames": 3723650
+      }
+    ]
+  },
+  {
+    "order": 6,
+    "packed_gates": true,
+    "passed": true,
+    "hosts": [
+      {
+        "host": "aiserver01",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1012474,
+            "rx": 1012474
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1012136,
+            "rx": 1012136
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1012466,
+            "rx": 1012466
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1012046,
+            "rx": 1012046
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4049122,
+        "host_direct_rx_frames": 4049122
+      },
+      {
+        "host": "aiserver02",
+        "moving_rails": [
+          {
+            "rail": "0:0x0",
+            "domain": 0,
+            "tx": 1012474,
+            "rx": 1012474
+          },
+          {
+            "rail": "0:0x1",
+            "domain": 0,
+            "tx": 1012136,
+            "rx": 1012136
+          },
+          {
+            "rail": "1:0x0",
+            "domain": 1,
+            "tx": 1012466,
+            "rx": 1012466
+          },
+          {
+            "rail": "1:0x1",
+            "domain": 1,
+            "tx": 1012046,
+            "rx": 1012046
+          }
+        ],
+        "data_wr_timeout": 0,
+        "retry_exhausted": 0,
+        "receive_retry_exhausted": 0,
+        "receive_bad_frame": 0,
+        "host_direct_tx_frames": 4049122,
+        "host_direct_rx_frames": 4049122
+      }
+    ]
+  }
+]
