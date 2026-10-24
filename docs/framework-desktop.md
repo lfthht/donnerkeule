@@ -48,6 +48,14 @@ baseline versus IRQ/worker placement, only **+0.97%**, below the default-change
 gate. More frequent or fixed-width DSpark drafting regressed. All full-run
 outputs matched; no additional optimization was promoted.
 
+The next [full-precision score-routing comparison](../bench/results/2026-10-24-deepseek-rdma-logits/README.md)
+moved the remaining vocabulary-score payload from the 1 Gb/s TCP control path
+to native RC. Six full requests measured **16.23 → 16.99 generation tok/s
+(+4.68%)**, with identical output and an unchanged complete GPU object. This
+engine-only overlay is selected on both hosts. The historical Mellanox
+reference remains 18.27 tok/s, about 7% faster in generation; it is not a fresh
+matched interconnect measurement.
+
 ## Changes in this branch
 
 1. **Completion progress:** an opt-in timer schedules ordinary data and XDomain

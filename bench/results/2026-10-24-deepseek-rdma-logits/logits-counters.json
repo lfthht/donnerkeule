@@ -1,0 +1,38 @@
+[
+  {
+    "run": 0,
+    "rdma_logits": false,
+    "log_lines": []
+  },
+  {
+    "run": 1,
+    "rdma_logits": true,
+    "log_lines": [
+      "ds4-tp: RDMA logits calls=236 tx_bytes=0 rx_bytes=68001280"
+    ]
+  },
+  {
+    "run": 2,
+    "rdma_logits": true,
+    "log_lines": [
+      "ds4-tp: RDMA logits calls=236 tx_bytes=0 rx_bytes=68259840"
+    ]
+  },
+  {
+    "run": 3,
+    "rdma_logits": false,
+    "log_lines": []
+  },
+  {
+    "run": 4,
+    "rdma_logits": false,
+    "log_lines": []
+  },
+  {
+    "run": 5,
+    "rdma_logits": true,
+    "log_lines": [
+      "ds4-tp: RDMA logits calls=236 tx_bytes=0 rx_bytes=68001280"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "feature": "lossless full-float logits over native RC",
+  "environment": "DS4_TP_ROCE_LOGITS=1",
+  "peer_protocol": "UBG4; default remains UBG3",
+  "files": {
+    "ds4_tp_roce.h": {
+      "before_sha256": "d72c50f0395f392facbb868604b77827aa526061c3e7e28e01cee4fa73216080",
+      "after_sha256": "e6c40c4a495eb3f1905ba4668009ca321553161c87bbfaf74443d47c4fdb5189"
+    },
+    "ds4_tp.c": {
+      "before_sha256": "ee85178df410ff48601988ef36a30160f285bb0dcc8d1bfbc2d492524261c850",
+      "after_sha256": "439711fe6e0a46045e01b17ef47ae4ccffb3767f8fd370308a12b0927d133eb2"
+    }
+  },
+  "layer": "full-precision score payloads over RC after UBG3 and cooperative polling",
+  "default_enabled": false,
+  "gpu_math_changed": false
+}

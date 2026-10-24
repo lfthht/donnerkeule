@@ -138,3 +138,7 @@ temporary authenticated sessions were closed. See
 Raw request logs, commands, IRQ snapshots and recovery journals are retained
 locally. No credentials, model files, private recovery files or container
 binaries are distributed in this result.
+
+A later [lossless score-routing change](../2026-10-24-deepseek-rdma-logits/README.md)
+was separately qualified and selected. It does not change the CPU/DSpark
+measurements or rejected policies above.

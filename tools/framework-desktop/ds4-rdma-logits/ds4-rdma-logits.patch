@@ -1,0 +1,165 @@
+--- a/ds4_tp_roce.h
++++ b/ds4_tp_roce.h
+@@ -38,6 +38,11 @@
+     unsigned posted;
+     bool packed_gates, prearmed;
+     unsigned cq_yield_interval;
++    bool logits, io_lock_ready;
++    pthread_mutex_t io_lock;
++    uint8_t *logits_tx, *logits_rx;
++    size_t logits_capacity;
++    uint64_t logits_tx_bytes, logits_rx_bytes, logits_calls;
+ };
+ /* Match Gufo's cooperative empty-CQ polling without changing completion
+  * semantics. A busy user poller can otherwise defer the kernel ring workers
+@@ -76,6 +81,9 @@
+     if (r->pd) r->dealloc_pd(r->pd);
+     if (r->ctx) r->close_device(r->ctx);
+     if (r->lib) dlclose(r->lib);
++    if(r->logits) fprintf(stderr,"ds4-tp: RDMA logits calls=%llu tx_bytes=%llu rx_bytes=%llu\n",(unsigned long long)r->logits_calls,(unsigned long long)r->logits_tx_bytes,(unsigned long long)r->logits_rx_bytes);
++    free(r->logits_tx);free(r->logits_rx);
++    if(r->io_lock_ready) pthread_mutex_destroy(&r->io_lock);
+     free(r); tp->roce = NULL;
+ }
+ static int tp_roce_probe(ds4_tp *tp, char *err, size_t errlen) {
+@@ -85,6 +93,8 @@
+     struct ds4_tp_roce *r = calloc(1,sizeof(*r));
+     if (!r) return 0;
+     tp->roce = r;
++    if(pthread_mutex_init(&r->io_lock,NULL)) goto fail;
++    r->io_lock_ready=true;
+     r->lib = dlopen("libibverbs.so.1",RTLD_NOW|RTLD_LOCAL);
+     if (!r->lib) { tp_set_err(err,errlen,"RoCE: libibverbs.so.1 unavailable: %s",dlerror()); goto fail; }
+ #define RC_LOAD(name) do { *(void **)(&r->name)=dlsym(r->lib,"ibv_" #name); if(!r->name) { tp_set_err(err,errlen,"RoCE: missing ibv_%s",#name); goto fail; } } while(0)
+@@ -120,6 +130,14 @@
+         tp_set_err(err,errlen,"DS4_TP_ROCE_PACKED_GATES must be 0 or 1");goto fail;
+     }
+     r->packed_gates=packed && !strcmp(packed,"1");
++    const char *logits=getenv("DS4_TP_ROCE_LOGITS");
++    if(logits && strcmp(logits,"0") && strcmp(logits,"1")) {
++        tp_set_err(err,errlen,"DS4_TP_ROCE_LOGITS must be 0 or 1");goto fail;
++    }
++    r->logits=logits && !strcmp(logits,"1");
++    if(r->logits && !r->packed_gates) {
++        tp_set_err(err,errlen,"RDMA logits requires packed gate negotiation");goto fail;
++    }
+     if(!tp_roce_parse_cq_yield(getenv("DS4_TP_ROCE_CQ_YIELD"),&r->cq_yield_interval)) {
+         tp_set_err(err,errlen,"DS4_TP_ROCE_CQ_YIELD must be 0 or a power of two up to 4096");goto fail;
+     }
+@@ -152,7 +170,7 @@
+     mine.epoch=tp->epoch;mine.qpn=r->qp->qp_num;mine.psn=r->psn;mine.mtu=r->mtu;memcpy(mine.gid,&r->gid,16);
+     /* A stock or differently configured peer must fail before any gate DMA.
+      * This opt-in protocol retains TCP bootstrap and large-window barriers. */
+-    mine.reserved=r->packed_gates?0x55424733u:0u;
++    mine.reserved=r->logits?0x55424734u:(r->packed_gates?0x55424733u:0u);
+     if(!ds4_tp_io_exchange(tp->data_fd,&mine,&peer,sizeof(mine),tp->gate_timeout_ms,&tp->failed)) goto fail;
+     if(peer.epoch!=mine.epoch || !peer.qpn || peer.qpn>0xffffffu || peer.psn>0xffffffu ||
+        peer.mtu<IBV_MTU_256 || peer.mtu>IBV_MTU_4096 || peer.reserved!=mine.reserved) { errno=EPROTO; goto fail; }
+@@ -180,6 +198,7 @@
+            memcmp(ready,remote,sizeof(ready))) { errno=EPROTO;goto fail; }
+     }
+     fprintf(stderr,"ds4-tp: packed RDMA gates=%u (protocol UBG3, max 64KiB)\n",r->packed_gates);
++    fprintf(stderr,"ds4-tp: full-precision RDMA logits=%u\n",r->logits);
+     return 1;
+ fail:
+     tp_set_err(err,errlen,"RoCE connect: %s",strerror(errno));return 0;
+--- a/ds4_tp.c
++++ b/ds4_tp.c
+@@ -2310,7 +2310,7 @@
+     uint64_t epoch, seq, bytes;
+ } ds4_tp_linux_gate_header;
+
+-static int tp_linux_gate(ds4_tp *tp, uint32_t kind, uint32_t layer,
++static int tp_linux_gate_unlocked(ds4_tp *tp, uint32_t kind, uint32_t layer,
+                          uint32_t gate, uint64_t seq, const void *out,
+                          void *in, uint64_t bytes, uint64_t grace_ms) {
+     if (ds4_tp_failed(tp)) return 0;
+@@ -2344,6 +2344,21 @@
+             strerror(errno));
+     ds4_tp_mark_failed(tp);
+     return 0;
++}
++/* The GPU graph drains each gate before returning logits to the main thread.
++ * Serialize adapter ownership as well: metadata written by the transport
++ * service is published to the logits caller through this mutex. */
++static int tp_linux_gate(ds4_tp *tp,uint32_t kind,uint32_t layer,uint32_t gate,
++                         uint64_t seq,const void *out,void *in,uint64_t bytes,uint64_t grace_ms) {
++#ifdef DS4_TP_HAVE_ROCE
++    const bool lock=tp->rdma_active && tp->roce && tp->roce->logits;
++    if(lock) pthread_mutex_lock(&tp->roce->io_lock);
++#endif
++    int ok=tp_linux_gate_unlocked(tp,kind,layer,gate,seq,out,in,bytes,grace_ms);
++#ifdef DS4_TP_HAVE_ROCE
++    if(lock) pthread_mutex_unlock(&tp->roce->io_lock);
++#endif
++    return ok;
+ }
+ #endif
+
+@@ -3169,7 +3184,55 @@
+     return 1;
+ }
+
++#ifdef DS4_TP_HAVE_ROCE
++/* LOGITS retains its ordinary control-frame header and complete float payload.
++ * Only its data bytes move to RC. A zero-filled reciprocal payload drains the
++ * existing receive-ahead window on both ranks, preserving QP FIFO/WR IDs. */
++static int tp_roce_logits_transfer(ds4_tp *tp,const float *out,float *in,uint32_t count) {
++    struct ds4_tp_roce *r=tp->roce;
++    const uint64_t bytes=(uint64_t)count*sizeof(float);
++    if(!count || bytes>TP_RC_WINDOW*(uint64_t)TP_RC_CHUNK-4095u || (!out)==(!in)) {
++        errno=EINVAL;ds4_tp_mark_failed(tp);return 0;
++    }
++    const size_t wire=((size_t)bytes+4095u)&~(size_t)4095u;
++    int ok=0;
++    pthread_mutex_lock(&r->io_lock);
++    if(ds4_tp_failed(tp)) { errno=ECANCELED;goto done; }
++    if(wire>r->logits_capacity) {
++        uint8_t *tx=calloc(1,wire),*rx=malloc(wire);
++        if(!tx || !rx) { free(tx);free(rx);errno=ENOMEM;goto done; }
++        free(r->logits_tx);free(r->logits_rx);
++        r->logits_tx=tx;r->logits_rx=rx;r->logits_capacity=wire;
++    }
++    memset(r->logits_tx,0,wire);
++    if(out) memcpy(r->logits_tx,out,(size_t)bytes);
++    if(!tp_roce_prepare(tp,wire)) goto done;
++    if(out) {
++        ds4_tp_frame_header h={DS4_TP_MAGIC,DS4_TP_FRAME_LOGITS,(uint32_t)bytes};
++        if(!tp_write_full(tp->control_fd,&h,sizeof(h))) goto done;
++    } else {
++        uint32_t type=0,n=0;
++        if(!tp_read_frame_header(tp->control_fd,&type,&n) || type!=DS4_TP_FRAME_LOGITS || n!=bytes) {
++            errno=EPROTO;goto done;
++        }
++    }
++    if(!tp_roce_exchange(tp,r->logits_tx,r->logits_rx,wire)) goto done;
++    if(in) memcpy(in,r->logits_rx,(size_t)bytes);
++    r->logits_calls++;
++    if(out) r->logits_tx_bytes+=bytes;else r->logits_rx_bytes+=bytes;
++    ok=1;
++done:
++    pthread_mutex_unlock(&r->io_lock);
++    if(!ok) ds4_tp_mark_failed(tp);
++    return ok;
++}
++#endif
++
+ int ds4_tp_send_logits_half(ds4_tp *tp, const float *half, uint32_t count) {
++#ifdef DS4_TP_HAVE_ROCE
++    if(tp->rdma_active && tp->roce && tp->roce->logits)
++        return tp_roce_logits_transfer(tp,half,NULL,count);
++#endif
+     ds4_tp_frame_header h = { DS4_TP_MAGIC, DS4_TP_FRAME_LOGITS,
+                               count * (uint32_t)sizeof(float) };
+     return tp_write_full(tp->control_fd, &h, sizeof(h)) &&
+@@ -3177,6 +3240,10 @@
+ }
+
+ int ds4_tp_recv_logits_half(ds4_tp *tp, float *half, uint32_t count) {
++#ifdef DS4_TP_HAVE_ROCE
++    if(tp->rdma_active && tp->roce && tp->roce->logits)
++        return tp_roce_logits_transfer(tp,NULL,half,count);
++#endif
+     uint32_t type = 0, bytes = 0;
+     if (!tp_read_frame_header(tp->control_fd, &type, &bytes) ||
+         type != DS4_TP_FRAME_LOGITS || bytes != count * sizeof(float)) {

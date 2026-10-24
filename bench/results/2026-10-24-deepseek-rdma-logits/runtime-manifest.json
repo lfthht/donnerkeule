@@ -1,0 +1,19 @@
+{
+  "tag": "localhost/deepseek1017-ds4:usb4-logits",
+  "image_id": "df68ad19223d5413fc1dc00cd9cd7fc4512f8e87f1126a560992997eee87404a",
+  "timestamp": 1792860909,
+  "binaries_sha256": [
+    "1ad49e18ea3ce3ecab83c8844045376cc9fe47beb0c6c6d27188ff3a6e78230c",
+    "f1221d664e8d8ff2f065e32a8a1853a33af63b25740184e51ea7cbf470f03309",
+    "2ba206df9cf2217cb7bd0eae507896cfea226c116c9ec24235c0945bc59164a5",
+    "76ea6f13975e5ccac1f9ecd9eccb02c663faac020f6441b261e81c0c91e645bf",
+    "b30de50718c317d38b500c986db355eb8db0a220a1c1c3fd19ed5cd73aabcec3"
+  ],
+  "gpu_object_sha256": "0064b49c10b3437464e15004f0fe3e610cc44a8f4689f5393a2bf951d9840dfe",
+  "original_hsa_and_provider": true,
+  "previous_selected_image": "9e10a9bfa49112ee02508fb9d6b12433ed4ab7b409b03019306bed1593bc087b",
+  "hsa_sha256": "69cfd3277b627dec1641166600764d2ee4c34bdfc8519e6ffe58a7e0d51bfbc0",
+  "provider_sha256": "2d83a2e9af97fe4b3f91f5ed89c278a2ab849d0bf626b12df238c3d9913665f0",
+  "kernel_module_sha256": "0c62484437a192e83d8a8a9cb1ab3169bc9a44ec6feb4b016166cf0677407764",
+  "kernel_srcversion": "BBDB140372B8EC1C925667B"
+}

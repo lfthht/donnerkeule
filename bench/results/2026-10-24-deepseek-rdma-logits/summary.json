@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "requests": 6,
+  "prompt_tokens": 16127,
+  "output_tokens": 256,
+  "kernel": "original selected driver",
+  "control_median": {
+    "prefill_tps": 433.68,
+    "generation_tps": 16.23
+  },
+  "candidate_median": {
+    "prefill_tps": 435.48,
+    "generation_tps": 16.99
+  },
+  "both_cables": true,
+  "duration_seconds": 515.7347252368927,
+  "generation_gain_percent": 4.682686383240897,
+  "all_outputs_identical": true,
+  "gpu_object_identical": true,
+  "quality_mode_flag": false
+}

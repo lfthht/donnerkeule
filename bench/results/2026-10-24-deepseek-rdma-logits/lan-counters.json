@@ -1,0 +1,110 @@
+[
+  {
+    "run": 0,
+    "rdma_logits": false,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 71675950,
+        "tx_bytes": 1137844
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 590728,
+        "tx_bytes": 68817614
+      }
+    ]
+  },
+  {
+    "run": 1,
+    "rdma_logits": true,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 532038,
+        "tx_bytes": 1003071
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 465468,
+        "tx_bytes": 719806
+      }
+    ]
+  },
+  {
+    "run": 2,
+    "rdma_logits": true,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 535090,
+        "tx_bytes": 1014370
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 473218,
+        "tx_bytes": 727798
+      }
+    ]
+  },
+  {
+    "run": 3,
+    "rdma_logits": false,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 71704911,
+        "tx_bytes": 1157671
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 611658,
+        "tx_bytes": 68831318
+      }
+    ]
+  },
+  {
+    "run": 4,
+    "rdma_logits": false,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 71652123,
+        "tx_bytes": 1138918
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 593472,
+        "tx_bytes": 68816572
+      }
+    ]
+  },
+  {
+    "run": 5,
+    "rdma_logits": true,
+    "hosts": [
+      {
+        "rank": 1,
+        "speed_mbps": 1000,
+        "rx_bytes": 540946,
+        "tx_bytes": 1020951
+      },
+      {
+        "rank": 2,
+        "speed_mbps": 1000,
+        "rx_bytes": 472837,
+        "tx_bytes": 719104
+      }
+    ]
+  }
+]
